@@ -6,7 +6,7 @@ class CreateThemes < ActiveRecord::Migration[6.0]
       t.string :answer1, null:false, default: "Yes"
       t.string :answer2, null:false, default: "No"
       t.integer :genre, null:false
-      t.integer :created_user_id, null:false
+      t.integer :user_id, null:false
 
       t.timestamps
     end
