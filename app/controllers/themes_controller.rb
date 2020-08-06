@@ -1,6 +1,11 @@
 class ThemesController < ApplicationController
 before_action :set_current_user
 
+  
+  def index
+    @themes = Theme.includes(:user).order("created_at DESC")
+  end
+
   def new
     @theme = Theme.new
   end
