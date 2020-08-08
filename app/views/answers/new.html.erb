@@ -1,0 +1,11 @@
+回答ページ
+<%= @theme.id %>
+<%= @theme.title %>
+
+<%= form_with(model:@answer, local:true) do |form| %>
+    <%=form.radio_button :answer, :answer1 %>
+    <%= @theme.answer1 %>
+    <%=form.radio_button :answer, :answer2 %>
+    <%= @theme.answer2 %>
+    <%=form.submit "回答する"%>
+<% end %>
