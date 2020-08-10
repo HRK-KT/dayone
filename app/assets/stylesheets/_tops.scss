@@ -1,0 +1,12 @@
+.top-message {
+  background-color: lightgray;
+  height: calc((100vh - 100px)/2);
+  width: 70vw;
+  
+  &__answer {
+    height: 10vh;
+    text-align:center;
+    padding-top: 10px;
+    background-color: lightgreen;
+  }
+}
