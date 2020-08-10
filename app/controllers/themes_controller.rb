@@ -3,7 +3,7 @@ before_action :set_current_user
 
   
   def index
-    @themes = Theme.includes(:user).order("created_at DESC")
+    @themes = Theme.where(user_id: current_user.id)
   end
 
   def new
