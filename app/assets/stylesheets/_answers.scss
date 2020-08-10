@@ -1,0 +1,84 @@
+.answer-new {
+  text-align: center;
+}
+
+.theme-id {
+  display: flex;
+  align-items: center;
+  height:40px;
+  background-color: lightpink;
+
+  &__info{
+  }
+
+  &__box{
+    border: 1px solid gray;
+    width:40px;
+    margin-left: 10px;
+  }
+}
+
+.theme-title {
+  text-align: center;
+  margin: 20px 0px;
+
+  &__info {
+    font-size: 24px;
+    margin-bottom: 20px
+  }
+
+  &__body {
+    font-size: 36px;
+  }
+
+}
+
+// 機能してない
+// input[type="radio"] {
+//   display: none;
+// }
+
+.answer-box {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+
+  &__select{
+    margin: 5px;
+    width: 150px;
+    height: 60px;
+    padding: 0px 5px;
+    text-align: center;
+    
+    border: 2px solid gray;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+}
+
+// 機能してない
+// input[type="radio"]:checked + label {
+//   background: palevioletred;
+//   color: black;
+// }
+
+.check-label {
+  color:red;
+  height:35px;
+  line-height: 35px;
+}
+
+.check-input {
+  margin-bottom: 5px;
+}
+
+.submit-btn {
+  margin: 20px auto;
+  line-height: 50px;
+  text-align: center;
+  height: 50px;
+  width:130px;
+  background-color: turquoise;
+}

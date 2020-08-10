@@ -1,12 +1,35 @@
-回答ページ
-<%= @theme.title %>
+<div class="answer-new">
+  お題回答ページ
+</div>
 
-<%= form_with(model:@answer, local:true) do |form| %>
-    <%=form.text_field :theme_id, value: @theme.id, readonly: true%>
-   
-    <%=form.radio_button :answer, :answer1 %>
-    <%=form.label :answer,  "#{@theme.answer1}" %>
-    <%=form.radio_button :answer, :answer2 %>
-    <%=form.label :answer, "#{@theme.answer2}" %>
-    <%=form.submit "回答する"%>
+<div class="answer-contents">
+  <%= form_with(model:@answer, local:true) do |form| %>
+    <div class="theme-id">
+			<div class="theme-id__info">
+				お題ID
+			</div>
+			<%=form.text_field :theme_id, value: @theme.id, readonly: true, class: "theme-id__box"%>
+    </div>
+		<div class="theme-title">
+			<div class="theme-title__info">
+      	お題：
+    	</div>
+			<div class="theme-title__body">
+      	<%= @theme.title %>
+    	</div>
+		</div>
+		
+		<div class="answer-box">
+			<div class="answer-box__select">
+				<%=form.label :answer, "#{@theme.answer1}",class:"check-label" %>
+				<%=form.radio_button :answer, "answer1", class:"check-input" %>
+			</div>
+			<div class="answer-box__select">
+				<%=form.label :answer, "#{@theme.answer2}",class:"check-label" %>
+				<%=form.radio_button :answer, "answer2", class:"check-input" %>
+			</div>
+		</div>
+		<div class="submit-btn">
+			<%=form.submit "回答する"%>
+		</div>
 <% end %>

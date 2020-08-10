@@ -1,12 +1,15 @@
-
-<div class="top-message">
-  <div class="top-message__answer">
-    お題に答える
+<div class="main-contents">
+  <div class="answer-area">
+    <div class="answer-area__title">
+      お題に答える
   </div>
-  <div class="top-message__link">
-    <%= link_to '回答ページへ' , new_answer_path %>
+    <div class="answer-area__info">
+      ここに説明分を挿入
+    </div>
+    <div class="answer-area__link">
+      <%= link_to '回答ページへ' , new_answer_path %>
+    </div>
   </div>
-</div>
 
 
 <%= link_to 'お題の新規投稿' , new_theme_path %>

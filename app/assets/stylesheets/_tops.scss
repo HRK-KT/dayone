@@ -1,12 +1,27 @@
-.top-message {
+.answer-area {
   background-color: lightgray;
   height: calc((100vh - 100px)/2);
   width: 70vw;
   
-  &__answer {
-    height: 10vh;
+  &__title {
+    height: calc((100vh - 100px)/2/3/2);
     text-align:center;
-    padding-top: 10px;
+    line-height: calc((100vh - 100px)/2/3/2);
     background-color: lightgreen;
   }
+
+  &__info {
+    height: calc((100vh - 100px)/2/3*2);
+    text-align:center;
+    line-height: calc((100vh - 100px)/2/3*2);
+    background-color: cornflowerblue;
+  }
+
+  &__link {
+    height: calc((100vh - 100px)/2/3/2);
+    text-align:center;
+    line-height: calc((100vh - 100px)/2/3/2);
+    background-color: lightpink;
+  }
+
 }
