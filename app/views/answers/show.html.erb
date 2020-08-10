@@ -1,0 +1,38 @@
+お題：
+<%= @theme.title %>
+あなたの回答:
+
+<% if @answer.answer == "answer1" %>
+  <%= @theme.answer1 %>
+<% elsif @answer.answer == "answer2" %>
+  <%= @theme.answer2 %>
+<% else %>
+<% end %>
+
+判定：
+<% if (@your_ans_count.to_f / @answers_count) > 0.5 %>
+  多数
+<% elsif (@your_ans_count.to_f / @answers_count) < 0.5 %>
+  少数
+<% else %>
+  どちらでもない：意見が分かれています！
+<% end %>
+
+分布：
+<%= @theme.answer1 %>と答えた人：
+  <% if @answer.answer == "answer1"%>
+    <%= @your_ans_count %>
+    ←あなたはこっち
+  <% else %>
+    <%= @answers_count - @your_ans_count %>
+  <% end %>
+<%= @theme.answer2 %>と答えた人：
+  <% if @answer.answer == "answer2"%>
+    <%= @your_ans_count %>
+    ←あなたはこっち
+  <% else %>
+    <%= @answers_count - @your_ans_count %>
+  <% end %>
+
+総回答数：
+  <%= @answers_count %>

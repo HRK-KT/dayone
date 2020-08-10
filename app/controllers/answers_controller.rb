@@ -18,6 +18,11 @@ class AnswersController < ApplicationController
 
   def show
     @answer = Answer.find(params[:id])
+    theme_id = @answer.theme_id
+    @theme = Theme.find(theme_id)
+ 
+    @answers_count = Answer.where(theme_id: theme_id).count
+    @your_ans_count = Answer.where(theme_id: theme_id, answer: @answer.answer).count
   end
 
   private

@@ -8,6 +8,8 @@ answer page
       <% elsif answer.answer == "answer2" %>
         あなたの答え：<%= theme.answer2 %>
       <% end %>
+      <%= link_to "詳細確認", answer_path(answer.id) %>
     <% end %>
+    
   <% end %>
 <% end %>

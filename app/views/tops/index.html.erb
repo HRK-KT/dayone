@@ -1,6 +1,13 @@
-toppage
 
-<%= link_to 'go to answer page' , new_answer_path %>
+<div class="top-message">
+  <div class="top-message__answer">
+    お題に答える
+  </div>
+  <div class="top-message__link">
+    <%= link_to '回答ページへ' , new_answer_path %>
+  </div>
+</div>
+
 
 <%= link_to 'お題の新規投稿' , new_theme_path %>
 <%= link_to '投稿したお題一覧' , themes_path %>
