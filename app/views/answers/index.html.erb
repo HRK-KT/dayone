@@ -1,1 +1,13 @@
 answer page 
+<% @answers.each do |answer| %>
+  <% @themes.each do |theme| %> 
+    <% if theme.id == answer.theme_id %>
+    お題：<%= theme.title %>
+      <% if answer.answer == "answer1" %>       
+        あなたの答え：<%= theme.answer1 %>
+      <% elsif answer.answer == "answer2" %>
+        あなたの答え：<%= theme.answer2 %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

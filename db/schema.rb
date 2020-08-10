@@ -13,11 +13,13 @@
 ActiveRecord::Schema.define(version: 2020_08_06_105637) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "theme_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "theme_id"
+    t.bigint "user_id"
     t.string "answer", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["theme_id"], name: "index_answers_on_theme_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "themes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -26,9 +28,10 @@ ActiveRecord::Schema.define(version: 2020_08_06_105637) do
     t.string "answer1", default: "Yes", null: false
     t.string "answer2", default: "No", null: false
     t.integer "genre", null: false
-    t.integer "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_themes_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -48,4 +51,7 @@ ActiveRecord::Schema.define(version: 2020_08_06_105637) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "themes"
+  add_foreign_key "answers", "users"
+  add_foreign_key "themes", "users"
 end

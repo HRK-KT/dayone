@@ -1,8 +1,11 @@
 class AnswersController < ApplicationController
   before_action :set_current_user
-  before_action :get_randam_theme
+  before_action :get_randam_theme ,only: :new
 
   def index
+    @answers = Answer.where(user_id: current_user.id)
+    theme_ids = @answers.distinct.pluck(:theme_id)
+    @themes = Theme.find(theme_ids)
   end
 
   def new
@@ -10,12 +13,16 @@ class AnswersController < ApplicationController
   end
 
   def create
-    Answer.create(answer_params.merge(theme_id: @theme_id))
+    Answer.create(answer_params)
+  end
+
+  def show
+    @answer = Answer.find(params[:id])
   end
 
   private
   def answer_params
-    params.require(:answer).permit(:answer).merge(user_id: current_user.id)
+    params.require(:answer).permit(:answer,:theme_id).merge(user_id: current_user.id)
   end
 
   def set_current_user
@@ -23,10 +30,11 @@ class AnswersController < ApplicationController
   end
 
   def get_randam_theme
-    @theme = Theme.find(2)
+    max = Theme.all.count
+    num = rand(1..max)
+    @theme = Theme.find(num)
     @theme_id = @theme.id
   end
-
 
 
 end

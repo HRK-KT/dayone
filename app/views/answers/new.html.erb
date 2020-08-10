@@ -2,9 +2,11 @@
 <%= @theme.title %>
 
 <%= form_with(model:@answer, local:true) do |form| %>
+    <%=form.text_field :theme_id, value: @theme.id, readonly: true%>
+   
     <%=form.radio_button :answer, :answer1 %>
-    <%= @theme.answer1 %>
+    <%=form.label :answer,  "#{@theme.answer1}" %>
     <%=form.radio_button :answer, :answer2 %>
-    <%= @theme.answer2 %>
+    <%=form.label :answer, "#{@theme.answer2}" %>
     <%=form.submit "回答する"%>
 <% end %>
