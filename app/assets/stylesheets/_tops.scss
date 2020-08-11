@@ -11,10 +11,15 @@
   }
 
   &__info {
-    height: calc((100vh - 100px)/2/3*2);
+    height: calc((100vh - 100px)/2/3/2);
     text-align:center;
-    line-height: calc((100vh - 100px)/2/3*2);
+    line-height: calc((100vh - 100px)/2/3/2);
     background-color: cornflowerblue;
+  }
+
+  &__search {
+    text-align:center;
+    background-color: gray;
   }
 
   &__link {
@@ -24,4 +29,24 @@
     background-color: lightpink;
   }
 
+
+  .search-input { 
+    border: 1px solid darkgrey;
+    background-color: white;
+    width: 50vw;
+    height: 50px;
+  }
+
+  .search-btn {
+    margin: 20px auto;
+    line-height: 50px;
+    text-align: center;
+    height: 50px;
+    width:130px;
+    background-color: turquoise;
+  }
+
+
+
 }
+
