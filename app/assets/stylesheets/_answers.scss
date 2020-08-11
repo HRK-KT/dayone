@@ -94,3 +94,81 @@
   width:130px;
   background-color: turquoise;
 }
+
+
+.history-header{
+  display:flex;
+  width: 100%;
+  background-color: darkslateblue;
+  height: 50px;
+  line-height: 50px;
+  color: white;
+  text-align: center;
+
+  &__date{
+    width: 20%;
+    border: 1px solid lightgray;
+  }
+  &__id{
+    width: 10%;
+    border: 1px solid lightgray;
+  }
+  &__genre{
+    width: 10%;
+    border: 1px solid lightgray;
+  }
+  &__title{
+    width: 35%;
+    border: 1px solid lightgray;
+  }
+  &__answer{
+    width: 15%;
+    border: 1px solid lightgray;
+  }
+  &__detail{
+    width: 10%;
+    border: 1px solid lightgray;
+  }
+}
+
+.history-contents{
+  display: flex;
+  width: 100%;
+  background-color: lightcyan;
+  height: 50px;
+  line-height: 50px;
+  color:darkmagenta;
+  text-align: center;
+  font-size: 1.2vw;
+
+  &__date{
+    width: 20%;
+    border: 1px solid lightgray;
+    
+  }
+  &__id{
+    width: 10%;
+    border: 1px solid lightgray;
+  }
+
+  &__genre{
+    width: 10%;
+    border: 1px solid lightgray;
+  }
+
+  &__title{
+    width: 35%;
+    border: 1px solid lightgray;
+  }
+
+  &__answer{
+    width: 15%;
+    border: 1px solid lightgray;
+  }
+
+  &__detail{
+    width: 10%;
+    border: 1px solid lightgray;
+  }
+
+}

@@ -1,15 +1,63 @@
 answer page 
+<div class="history-header">
+  <div class="history-header__date">
+    回答日時
+  </div>
+  <div class="history-header__id">
+    お題ID
+  </div>
+  <div class="history-header__genre">
+    ジャンル
+  </div>
+  <div class="history-header__title">
+    お題タイトル
+  </div>
+  <div class="history-header__answer">
+    あなたの回答
+  </div>
+  <div class="history-header__detail">
+    詳細リンク
+  </div>
+</div>
+
+
 <% @answers.each do |answer| %>
-  <% @themes.each do |theme| %> 
-    <% if theme.id == answer.theme_id %>
-    お題：<%= theme.title %>
-      <% if answer.answer == "answer1" %>       
-        あなたの答え：<%= theme.answer1 %>
-      <% elsif answer.answer == "answer2" %>
-        あなたの答え：<%= theme.answer2 %>
+  <% @themes.each do |theme| %>
+      <% if theme.id == answer.theme_id %>
+      <div class="history-contents">
+        <div class="history-contents__date">
+          <%= answer.created_at %>
+        </div>
+        <div class="history-contents__id">
+          <%= theme.id %>
+        </div>
+        <div class="history-contents__genre">
+          <% if theme.genre == 0 %>
+					  生活
+				  <% elsif theme.genre == 1 %>
+					  教養・文化
+          <% elsif theme.genre == 2 %>
+            仕事
+          <% elsif theme.genre == 3 %>
+            恋愛・性
+          <% elsif theme.genre == 4 %>
+            宗教
+          <% elsif theme.genre == 5 %>
+            趣味・娯楽
+          <%end%>
+        </div>
+        <div class="history-contents__title">
+          <%= theme.title %>
+        </div>
+        <div class="history-contents__answer">
+          <% if answer.answer == "answer1" %>       
+            <%= theme.answer1 %>
+          <% elsif answer.answer == "answer2" %>
+            <%= theme.answer2 %>
+          <% end %>
+        </div>
+        <%= link_to "詳細確認", answer_path(answer.id), class: "history-contents__detail" %>
       <% end %>
-      <%= link_to "詳細確認", answer_path(answer.id) %>
-    <% end %>
-    
+    </div>
   <% end %>
 <% end %>
