@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   before_action :set_current_user
-  before_action :get_randam_theme ,only: :new
+  # before_action :get_randam_theme ,only: :new
 
   def index
     @answers = Answer.where(user_id: current_user.id)
@@ -9,11 +9,17 @@ class AnswersController < ApplicationController
   end
 
   def new
-    # 答えられる回答なければリダイレクト
-    if @response == "no"
-      redirect_to root_path
+    # 検索からきた場合、特定の問題に答えられるように分岐
+    if request.referer&.include?("/themes/search")
+      get_designated_theme
+    else
+      # 答えられる回答なければリダイレクト
+      if @response == 0
+        redirect_to root_path
+      end
+      get_randam_theme
+      @answer = Answer.new
     end
-    @answer = Answer.new
   end
 
   def create
@@ -44,6 +50,7 @@ class AnswersController < ApplicationController
     @current_user = User.find_by(id: session[:user_id])
   end
 
+  # ランダムに取得した問題をanswer.newにセット
   def get_randam_theme
     # 必要なID(Answer,Theme)を取得
     @answers = Answer.where(user_id: current_user.id)
@@ -54,7 +61,7 @@ class AnswersController < ApplicationController
       find_theme_ids.delete(theme)
        # 未回答０なら分岐
       if find_theme_ids.empty?
-        return @response = "no"
+        return @response = 0
       end
     end
     # theme_idをセット
@@ -64,5 +71,12 @@ class AnswersController < ApplicationController
     @theme_id = @theme.id
   end
 
+  # 指定された問題をanswer.newにセット
+  def get_designated_theme
+    @theme = Theme.find(params[:theme_id])
+    @theme_id = @theme.id
+    @answer = Answer.new
+  end
+    
 
 end

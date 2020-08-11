@@ -6,6 +6,12 @@
     <div class="answer-area__info">
       ここに説明分を挿入
     </div>
+    <div class="answer-area__search">
+      <%= form_with(url: search_themes_path, local: true, method: :get, class: "search-from") do |form| %>
+        <%= form.text_field :keyword, placeholder: "検索したいワードを入力", class: "search-input" %>
+        <%= form.submit "検索", class: "search-btn" %>
+      <% end %>
+    </div>
     <div class="answer-area__link">
       <%= link_to '回答ページへ' , new_answer_path %>
     </div>

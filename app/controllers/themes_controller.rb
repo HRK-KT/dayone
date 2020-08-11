@@ -14,6 +14,10 @@ before_action :set_current_user
     Theme.create(theme_params)
   end
 
+  def search
+    @themes = Theme.search(params[:keyword])
+  end
+
   private
   def theme_params
     params.require(:theme).permit(:title, :answer1, :answer2, :genre).merge(user_id: current_user.id)
