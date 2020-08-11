@@ -13,11 +13,11 @@ class AnswersController < ApplicationController
     if request.referer&.include?("/themes/search")
       get_designated_theme
     else
+      get_randam_theme
       # 答えられる回答なければリダイレクト
       if @response == 0
         redirect_to root_path
       end
-      get_randam_theme
       @answer = Answer.new
     end
   end
@@ -25,11 +25,10 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
     if @answer.save
-      answers_path
+      redirect_to new_answer_path
     else
       redirect_to root_path
     end
-
   end
 
   def show
