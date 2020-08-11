@@ -16,6 +16,7 @@
     width:40px;
     margin-left: 10px;
   }
+
 }
 
 .theme-title {
@@ -29,6 +30,17 @@
 
   &__body {
     font-size: 36px;
+  }
+
+  &__genre{
+    border: solid 1px lightcoral;
+    border-radius: 2px;
+    width: 100px;
+    height: 30px;
+    background-color: pink;
+    margin: 10px auto;
+    line-height: 30px;
+    color:darkred;
   }
 
 }

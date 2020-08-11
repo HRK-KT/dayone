@@ -17,6 +17,22 @@
 			<div class="theme-title__body">
       	<%= @theme.title %>
     	</div>
+			<div class="theme-title__genre">
+				<% if @theme.genre == 0 %>
+					生活
+				<% elsif @theme.genre == 1 %>
+					教養・文化
+				<% elsif @theme.genre == 2 %>
+					仕事
+				<% elsif @theme.genre == 3 %>
+					恋愛・性
+				<% elsif @theme.genre == 4 %>
+					宗教
+				<% elsif @theme.genre == 5 %>
+					趣味・娯楽
+				<%end%>
+			</div>
+
 		</div>
 		
 		<div class="answer-box">
@@ -31,10 +47,9 @@
 		</div>
 		<div class="submit-btn">
 			<%=form.submit "回答する"%>
-		</div>
-		
+		</div>	
 	<% end %>
-</div>
 	<div class="submit-btn">
 			<%=link_to '回答を終了する', answers_path, method: :get %>
 	</div>
+</div>
