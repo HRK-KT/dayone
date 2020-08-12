@@ -13,13 +13,19 @@ answer page
     お題タイトル
   </div>
   <div class="history-header__answer">
-    あなたの回答
+    あなたの答
+  </div>
+  <div class="history-header__judge">
+    判定
   </div>
   <div class="history-header__detail">
     詳細リンク
   </div>
 </div>
 
+<% majority_count = 0 %>
+<% minority_count = 0 %>
+<% unknown_count = 0 %>
 
 <% @answers.each do |answer| %>
   <% @themes.each do |theme| %>
@@ -52,8 +58,23 @@ answer page
         <div class="history-contents__answer">
           <% if answer.answer == "answer1" %>       
             <%= theme.answer1 %>
+            <% your_ans_count = Answer.where(theme_id: theme.id, answer: "answer1").count %>
           <% elsif answer.answer == "answer2" %>
             <%= theme.answer2 %>
+            <% your_ans_count = Answer.where(theme_id: theme.id, answer: "answer2").count %>
+          <% end %>
+        </div>
+        <div class="history-contents__judge">
+          <% answers_count = Answer.where(theme_id: theme.id).count %>
+          <% if (your_ans_count.to_f / answers_count) > 0.5 %>
+          多数
+          <% majority_count = majority_count + 1 %>
+          <% elsif (your_ans_count.to_f / answers_count) < 0.5 %>
+          少数
+          <% minority_count = minority_count + 1 %>
+          <% else %>
+          不明
+          <% unknown_count = unknown_count + 1%>
           <% end %>
         </div>
         <%= link_to "詳細確認", answer_path(answer.id), class: "history-contents__detail" %>
@@ -61,3 +82,10 @@ answer page
     </div>
   <% end %>
 <% end %>
+
+多数回答
+  <%= majority_count %>
+少数回答
+  <%= minority_count %>
+不明回答
+  <%= unknown_count %>

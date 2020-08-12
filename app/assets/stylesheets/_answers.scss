@@ -118,13 +118,19 @@
     border: 1px solid lightgray;
   }
   &__title{
-    width: 35%;
+    width: 30%;
     border: 1px solid lightgray;
   }
   &__answer{
-    width: 15%;
+    width: 10%;
     border: 1px solid lightgray;
   }
+
+  &__judge {
+    width: 10%;
+    border: 1px solid lightgray;
+  }
+
   &__detail{
     width: 10%;
     border: 1px solid lightgray;
@@ -157,14 +163,20 @@
   }
 
   &__title{
-    width: 35%;
+    width: 30%;
     border: 1px solid lightgray;
   }
 
   &__answer{
-    width: 15%;
+    width: 10%;
     border: 1px solid lightgray;
   }
+
+  &__judge{
+    width: 10%;
+    border: 1px solid lightgray;
+  }
+
 
   &__detail{
     width: 10%;
