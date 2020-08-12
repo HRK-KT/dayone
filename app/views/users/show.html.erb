@@ -1,0 +1,14 @@
+マイページ
+
+ユーザー情報：
+<%= @user.id %>
+<%= @user.name %>
+<%= @user.sex %>
+<%= @user.age %>
+<%= @user.region %>
+<%= @user.job %>
+
+<%= link_to 'お題をつくる', new_theme_path %>
+<%= link_to '回答を確認する', answers_path %>
+
+回答の傾向：
