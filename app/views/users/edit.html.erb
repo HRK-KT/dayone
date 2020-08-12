@@ -1,0 +1,20 @@
+User Edit Page
+
+<%= form_with(model:@user, local:true) do |form| %>
+  <%=form.label :name, "ユーザー名" %>
+	<%=form.text_field :name, placeholder: "指名を入力", default: @user.name %>
+
+  <%=form.label :sex, "性別" %>
+  <%= form.select :sex, [["未回答", 0], ["男性", 1], ["女性", 2]]%>
+
+  <%=form.label :age, "年齢" %>
+  <%=form.number_field :age, placeholder: "年齢を入力", default: @user.age %>
+
+  <%=form.label :region, "地域" %>
+  <%=form.select :region, [["北海道", 0], ["青森", 1], ["岩手", 2]]%>
+
+  <%=form.label :job, "職業" %>
+  <%=form.select :job, [["会社員", 0], ["自営業", 1], ["フリー", 2], ["学生", 3], ["その他", 4]]%>
+
+  <%=form.submit "更新する"%>
+<% end %>
