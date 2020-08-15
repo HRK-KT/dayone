@@ -1,6 +1,6 @@
 .header { 
   height: 100px;
-  background-color: lightcyan;
+  background-color: #0DB8D9;
 
   &__bar {
     height: 100px;
@@ -14,6 +14,7 @@
 .title {
   font-size: 36px;
   font-weight: bold;
+  color: #FFE600;
 }
 
 .grid-6 {
@@ -21,7 +22,8 @@
 }
 
 .btn { 
-  color: whitesmoke;
+  color: #0DB8D9;
+  font-weight: bold;
   width: 150px;
   height: 60px;
   padding:10px;
@@ -30,7 +32,7 @@
   align-items: center;
   justify-content: center;
   margin-left: 5px;
-  background-color: cadetblue;
+  background-color: #FFE600;
 }
 
 .login_signup {

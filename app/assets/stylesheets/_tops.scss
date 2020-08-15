@@ -1,34 +1,74 @@
+.main-contents {
+  height: 100vh;
+  background-color: #FFE600;
+  display: flex;
+  justify-content: center;
+}
+
 .answer-area {
-  background-color: lightgray;
-  height: calc((100vh - 100px)/2);
-  width: 70vw;
+  background-color: #A2CA0E;
+  border-radius: 20px;
+  height: 300px;
+  width: 80vw;
+  margin-top: 20px;
+}
   
-  &__title {
-    height: calc((100vh - 100px)/2/3/2);
-    text-align:center;
-    line-height: calc((100vh - 100px)/2/3/2);
-    background-color: lightgreen;
+.answer-title {
+    height: 100px;
+    line-height: 100px;
+    padding-left: 30px;
+    padding-top: 10px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFE600;
   }
 
-  &__info {
-    height: calc((100vh - 100px)/2/3/2);
-    text-align:center;
-    line-height: calc((100vh - 100px)/2/3/2);
-    background-color: cornflowerblue;
+.answer-start {
+  display: flex;
+  margin: 10px;
+  padding: 0px 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.answer-guide {
+    height: 80px;
+    // background-color: cornflowerblue;
+    width: 50vw;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+
+    &__message {
+      padding-left: 10px;
+      height: 40px;
+      line-height: 40px;
+      font-weight: bold;
+    }
+
+
   }
 
-  &__search {
+
+
+.answer-link {
+    height: 50px;
     text-align:center;
-    background-color: gray;
+    line-height: 50px;
+    background-color: #EA5419;
+    width: 270px;
+    color: #FFE600;
+    font-weight: bold;
+    border: 1px solid white;
+    
   }
 
-  &__link {
-    height: calc((100vh - 100px)/2/3/2);
-    text-align:center;
-    line-height: calc((100vh - 100px)/2/3/2);
-    background-color: lightpink;
-  }
 
+  .answer-search {
+    text-align:center;
+    padding: 0px 30px;
+    
+  }
 
   .search-input { 
     border: 1px solid darkgrey;
@@ -37,16 +77,22 @@
     height: 50px;
   }
 
+  .search-form {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+  }
+
   .search-btn {
-    margin: 20px auto;
     line-height: 50px;
     text-align: center;
     height: 50px;
     width:130px;
-    background-color: turquoise;
+    background-color:  #EA5419;
+    color: #FFE600;
+    border: 1px solid white;
   }
 
 
-
-}
 
