@@ -1,14 +1,99 @@
-マイページ
-
-ユーザー情報：
-<%= @user.id %>
-<%= @user.name %>
-<%= @user.sex %>
-<%= @user.age %>
-<%= @user.region %>
-<%= @user.job %>
-
-<%= link_to 'お題をつくる', new_theme_path %>
-<%= link_to '回答を確認する', answers_path %>
-
-回答の傾向：
+<div class="mypage">
+  <div class="side-bar">
+    <div class="user-profile">
+        ユーザー情報
+    </div>
+    <div class="user-info">
+      <div class="user-info__label">
+        ユーザーID : 
+      </div>
+      <div class="user-info__value">
+        <%= @user.id %>
+      </div>
+    </div>
+    <div class="user-info">
+      <div class="user-info__label">
+        ユーザー名 : 
+      </div>
+      <div class="user-info__value">
+        <%= @user.name %>
+      </div>
+    </div>
+    <div class="user-info">
+      <div class="user-info__label">
+        性別 : 
+      </div>
+      <div class="user-info__value">
+        <%= @user.sex %>
+      </div>
+    </div>
+    <div class="user-info">
+      <div class="user-info__label">
+        性別 : 
+      </div>
+      <div class="user-info__value">
+        <%= @user.age %>
+      </div>
+    </div>
+    <div class="user-info">
+      <div class="user-info__label">
+        地域 : 
+      </div>
+      <div class="user-info__value">
+        <%= @user.region %>
+      </div>
+    </div>  
+    <div class="user-info">
+      <div class="user-info__label">
+        職業 : 
+      </div>
+      <div class="user-info__value">
+        <%= @user.job %>
+      </div>
+    </div>   
+    <div class="return-top">
+      <%= link_to 'トップへもどる' ,root_path %><br>
+      <%= link_to '登録内容を変更する', edit_user_path(current_user) %>
+    </div>
+  </div>
+  <div class="analyze-area">
+    <div class="user-head">
+      回答内容分析
+    </div>
+    <div class="total-answer-info">
+      <%# ここは要検討（省略すべき） %>
+        <% majority_count = 0 %>
+        <% minority_count = 0 %>
+        <% unknown_count = 0 %>
+        <% @answers.each do |answer| %>
+          <% @themes.each do |theme| %>
+            <% if theme.id == answer.theme_id %>
+              <% if answer.answer == "answer1" %>       
+                <% theme.answer1 %>
+                <% your_ans_count = Answer.where(theme_id: theme.id, answer: "answer1").count %>
+              <% elsif answer.answer == "answer2" %>
+                <% theme.answer2 %>
+                <% your_ans_count = Answer.where(theme_id: theme.id, answer: "answer2").count %>
+              <% end %>
+              <% answers_count = Answer.where(theme_id: theme.id).count %>
+                <% if (your_ans_count.to_f / answers_count) > 0.5 %>
+                  <% majority_count = majority_count + 1 %>
+                <% elsif (your_ans_count.to_f / answers_count) < 0.5 %>
+                  <% minority_count = minority_count + 1 %>
+                <% else %>
+                  <% unknown_count = unknown_count + 1%>
+                <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <div class="answer-total-result">
+        多数回答
+          <%= majority_count %>
+        少数回答
+          <%= minority_count %>
+        不明回答
+          <%= unknown_count %>
+      </div>
+    </div>
+  </div>
+</div>
