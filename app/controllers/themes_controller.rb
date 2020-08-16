@@ -30,7 +30,7 @@ before_action :set_current_user
 
   private
   def theme_params
-    params.require(:theme).permit(:title, :answer1, :answer2, :genre).merge(user_id: current_user.id)
+    params.require(:theme).permit(:title, :image, :answer1, :answer2, :genre).merge(user_id: current_user.id)
   end
 
   def set_current_user

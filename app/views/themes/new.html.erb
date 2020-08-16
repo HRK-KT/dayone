@@ -9,7 +9,8 @@
       <%= form.text_field :title, placeholder: "お題を入力してね", class:"new-theme-body__form"%>
     </div>
     <div class="new-theme__image">
-      <%= form.text_field :image, placeholder: "Image Url" %>
+      <%= form.label :image, class:'Form_inputBox'%>
+      <%= form.file_field :image %>
     </div>
     <div class="theme-answer">
       <%= form.label :answer1, "選択肢１ :", class:"new-theme-ans__label"%>
