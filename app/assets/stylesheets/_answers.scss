@@ -250,7 +250,7 @@
     width: 10%;
     border: 1px solid lightgray;
     text-decoration: underline;
-    color: #0DB8D9;
+    color: #2660AC;
     font-weight: bold;
   }
 
@@ -270,22 +270,47 @@
   height: 40px;
   line-height: 40px;
   text-align: center;
+  justify-content: space-between;
 }
 
-.ID-label {
-  border: 1px solid darkgrey;
+.ID {
+  display: flex;
+  width:20vw;
+
+  &__label {
   border-radius: 10px;
-  width: 6%;
-  margin-right: 0.5%;
-  background-color: lightgray;
+  width: 40%;
+  margin-right: 5px;
+  }
+
+  &__value {
+    border: 1px solid darkgrey;
+    background-color:lightgrey;
+    width: 50%;
+    margin-right: 1%;
+  }
 }
 
-.ID-value {
-  border: 1px solid darkgrey;
+
+.create-user {
+  display: flex;
+  width:20vw;
+
+  &__label {
   border-radius: 10px;
-  width: 5%;
-  margin-right: 1%;
+  width: 40%;
+  margin-right: 5px;
+  }
+
+  &__value {
+    border: 1px solid darkgrey;
+    background-color:lightgrey;
+    width: 50%;
+    margin-right: 1%;
+  }
 }
+
+
 
 .theme-value {
   border: 1px solid darkgrey;
@@ -379,39 +404,74 @@
 
 }
 
+.answer-count {
+  margin: 20px auto;
+}
+
 .detail-breakdown {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width:100%;
-  height: 50px;
+  height: 100px;
  
   &__answer1{
-    width:40%;
+    width:150px;
+    margin-left:auto;
+    margin-right:5px;
   }
 
   &__answer2{
-    width:40%;
+    width:150px;
+    margin-right:auto;
+    margin-left:5px;
   }
+
 }
 
-.breakdown-answer{
-  border: 1px solid darkgrey;
+.breakdown-answer1{
   border-radius: 10px;
-  width: 40%;
-  background-color: lightgray;
-  margin: 10px auto;
+  background-color: #A2CA0E;
   text-align: center;
-  height:30px;
-  line-height: 30px;
+  width: 150px;
+  height:50px;
+  line-height: 50px;
+  margin: 10px auto;
+  position: absolute;
+}
+
+.breakdown-answer2{
+  border-radius: 10px;
+  background-color: #F08A37;
+  text-align: center;
+  width: 150px;
+  height:50px;
+  line-height: 50px;
+  margin: 10px auto;
+  position: absolute;
 }
 
 .breakdown-count {
   width: 40%;
   margin: 0px auto;
   text-align: center;
+  position:relative;
+  top: 80px;
 }
 
 .choose-message{
-  margin-top: 5px;
+  width: 165px;
+  height:80px;
+  border: 1px solid red;
+  color:red;
+  margin: 0px auto;
+  position: relative;
+  top: -130%;
+  left: -5%;
+  line-height: 10px;
+}
 
+.return-answer-page{
+  margin-top: 20px;
+  text-decoration: underline;
+  text-align: center; 
 }

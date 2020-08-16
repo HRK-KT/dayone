@@ -1,54 +1,21 @@
+<div class="answer-head">
+  回答の詳細
+</div> 
+
+
+
+
+
 <div class="theme-info">
-  <div class="ID-label">
-    お題ID
+  <div class="ID">
+    <div class="ID__label">
+      お題ID : 
+    </div>
+    <div class="ID__value">
+      <%= @theme.id %>
+    </div>
   </div>
-  <div class="ID-value">
-    <%= @theme.id %>
-  </div>
-  <div class="theme-value">
-    <%= @theme.title %>
-  </div>
-  <div class="genre-label">
-    ジャンル
-  </div>
-  <div class="genre-value">
-    <% if @theme.genre == 0 %>
-      生活
-    <% elsif @theme.genre == 1 %>
-      教養・文化
-    <% elsif @theme.genre == 2 %>
-      仕事
-    <% elsif @theme.genre == 3 %>
-      恋愛・性
-    <% elsif @theme.genre == 4 %>
-      宗教
-    <% elsif @theme.genre == 5 %>
-      趣味・娯楽
-    <%end%>
-  </div>
-  <div class="create-user-label">
-    作成者
-  </div>
-  <div class="create-user-value">
-    <%= @theme.user_id %>
-  </div>
-</div>
-
-<div class="answer-info">
-  <div class="answer-info__label">
-    あなたの回答
-  </div>
-  <div class="answer-info__value">
-    <% if @answer.answer == "answer1" %>
-      <%= @theme.answer1 %>
-    <% elsif @answer.answer == "answer2" %>
-      <%= @theme.answer2 %>
-    <% else %>
-    <% end %>
-  </div>
-</div>
-
-<div class="result-info">
+  <div class="result-info">
   <div class="result-info__label">
     あなたの回答は
   </div>
@@ -63,46 +30,91 @@
   </div>
 </div>
 
-<div class="answer-detail">
-  <div class="answer-detail__label">
-    回答の内訳：
-  </div>
-  <div class="answer-detail__total">
-    現在の回答数：
-    <%= @answers_count %>
+  <div class="create-user">
+    <div class="create-user__label">
+      作成者 : 
+    </div>
+    <div class="create-user__value">
+      <%= @theme.user_id %>
+    </div>
   </div>
 </div>
 
+
+	<div class="theme-title">
+			<div class="theme-title__info">
+      	お題：
+    	</div>
+			<div class="theme-title__body">
+      	<%= @theme.title %>
+    	</div>
+			<div class="theme-title__genre">
+				<% if @theme.genre == 0 %>
+					生活
+				<% elsif @theme.genre == 1 %>
+					教養・文化
+				<% elsif @theme.genre == 2 %>
+					仕事
+				<% elsif @theme.genre == 3 %>
+					恋愛・性
+				<% elsif @theme.genre == 4 %>
+					宗教
+				<% elsif @theme.genre == 5 %>
+					趣味・娯楽
+				<%end%>
+			</div>
+
+<div class="answer-count">
+    現在の回答数：
+    <%= @answers_count %>
+</div>
+
+
+
+
 <div class="detail-breakdown">    
   <div class="detail-breakdown__answer1">
-    <div class="breakdown-answer">
-      <%= @theme.answer1 %>と答えた人
+ 
+    <div class="breakdown-answer1">
+      <%= @theme.answer1 %>
+      <% if @answer.answer == "answer1"%>
+        <div class="choose-message">
+          your choice
+        </div>
+      <% end %>
     </div>
     <div class="breakdown-count">
       <% if @answer.answer == "answer1"%>
-        <%= @your_ans_count %>
-        <div class="choose-message">
-          ↑あなたはこっち
-        </div>
+        <%= @your_ans_count %>人
       <% else %>
-        <%= @answers_count - @your_ans_count %>
+        <%= @answers_count - @your_ans_count %>人
       <% end %>
     </div>
   </div>
   
   <div class="detail-breakdown__answer2">
-    <div class="breakdown-answer">
-      <%= @theme.answer2 %>と答えた人
+
+    <div class="breakdown-answer2">
+      <%= @theme.answer2 %>
+        <% if @answer.answer == "answer2"%>
+          <div class="choose-message">
+            your choice
+          </div>
+        <% end %>
     </div>
     <div class="breakdown-count">
         <% if @answer.answer == "answer2"%>
-          <%= @your_ans_count %>
-          <div class="choose-message">
-            ↑あなたはこっち
-          </div>
+          <%= @your_ans_count %>人
         <% else %>
-          <%= @answers_count - @your_ans_count %>
+          <%= @answers_count - @your_ans_count %>人
         <% end %>
     </div>
   </div>
 </div>
+
+<div class="return-answer-page">
+  <%= link_to '回答一覧へ戻る' , answers_path %>
+</div>
+
+
+
