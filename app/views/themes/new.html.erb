@@ -1,11 +1,30 @@
-新規お題
+<div class="theme-head">
+  お題の新規作成
+</div>
 
-<%= form_with(model: @theme, local:true) do |form| %>
-  <h3>お題の作成</h3>
-  <%= form.text_field :title, placeholder: "お題を入力してね"%>
-  <%= form.text_field :image, placeholder: "Image Url" %>
-  <%= form.text_field :answer1, placeholder: "選択肢１を入力してね"%>
-  <%= form.text_field :answer2, placeholder: "選択肢２を入力してね"%>
-  <%= form.select :genre, [["生活", 0], ["教養・文化", 1], ["仕事", 2], ["恋愛・性", 3], ["宗教", 4], ["趣味・娯楽", 5]]%>
-  <%= form.submit "投稿する"%>
-<% end %>
+<div class="new-theme">
+  <%= form_with(model: @theme, local:true) do |form| %>
+    <div class="theme-body">
+      <%= form.label :title, "お題(画像添付) :", class:"new-theme-body__label"%>
+      <%= form.text_field :title, placeholder: "お題を入力してね", class:"new-theme-body__form"%>
+    </div>
+    <div class="new-theme__image">
+      <%= form.text_field :image, placeholder: "Image Url" %>
+    </div>
+    <div class="theme-answer">
+      <%= form.label :answer1, "選択肢１ :", class:"new-theme-ans__label"%>
+      <%= form.text_field :answer1, placeholder: "選択肢１を入力してね", class:"new-theme-ans__form"%>
+    </div>
+    <div class="theme-answer">
+      <%= form.label :answer2, "選択肢２ :", class:"new-theme-ans__label"%>    
+      <%= form.text_field :answer2, placeholder: "選択肢２を入力してね", class:"new-theme-ans__form"%>
+    </div>
+    <div class="theme-genre">
+      <%= form.label :genre, "ジャンル :", class:"new-theme-genre__label"%> 
+      <%= form.select :genre, [["生活", 0], ["教養・文化", 1], ["仕事", 2], ["恋愛・性", 3], ["宗教", 4], ["趣味・娯楽", 5]], {}, class:"new-theme-genre__form" %>
+    </div>
+    <div class="submit-btn">
+      <%= form.submit "投稿する"%>
+    </div>
+  <% end %>
+</div>

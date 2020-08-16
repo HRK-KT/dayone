@@ -1,3 +1,93 @@
-// Place all the styles related to the themes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.theme-head {
+  background-color: #F08A37;
+  color: #FFE600;
+  height: 40px;
+  line-height: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  padding-left: 20px;
+  margin: 10px 0px;
+}
+
+.new-theme {
+  margin-top: 20px;
+}
+
+.new-theme-body { 
+  
+
+  &__label{
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    width:200px;
+    display: block;
+    float: left;
+    text-align: right;
+    margin-right: 10px;
+    
+  }
+
+  &__form{
+    width: 70vw;
+    background-color: white;
+    border: 1px solid lightgray;
+    height: 50px;
+    line-height: 50px;
+    box-sizing: border-box;
+  }
+}
+
+
+.new-theme-ans {
+
+  &__label{
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    margin-right: 10px;
+    width:200px;
+    display: block;
+    float: left;
+    
+  }
+
+  &__form{
+    width: 70vw;
+    background-color: white;
+    border: 1px solid lightgray;
+    height: 50px;
+    line-height: 50px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+}
+
+.new-theme-genre {
+
+  &__label{
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    margin-right: 10px;
+    width:200px;
+    display: block;
+    float: left;
+    
+  }
+
+  &__form{
+    width: 70vw;
+    height: 50px;
+    line-height: 50px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid lightgray;
+  }
+}
