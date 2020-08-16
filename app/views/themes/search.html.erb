@@ -1,11 +1,66 @@
+<div class="theme-head">
+  お題の検索結果一覧
+</div>
+ 
+<%= @counts %>件みつかりました
+
+  <div class="result-header">
+    <div class="result-header__id">
+      お題ID
+    </div>
+    <div class="result-header__genre">
+      ジャンル
+    </div>
+    <div class="result-header__title">
+      お題タイトル
+    </div>
+     <div class="result-header__user">
+      作成者
+    </div>
+    <div class="result-header__link">
+      回答リンク
+    </div>
+  </div>
+
+
 <% @themes.each do |theme| %>
-  <%= theme.id %>
-  <%= theme.title %>
+<div class="result-contents">
+  <div class="result-contents__id">
+    <%= theme.id %>
+  </div>
+  <div class="result-contents__genre">
+    <% if theme.genre == 0 %>
+      生活
+    <% elsif theme.genre == 1 %>
+      教養・文化
+    <% elsif theme.genre == 2 %>
+      仕事
+    <% elsif theme.genre == 3 %>
+      恋愛・性
+    <% elsif theme.genre == 4 %>
+      宗教
+    <% elsif theme.genre == 5 %>
+      趣味・娯楽
+    <%end%>
+  </div>
+  <div class="result-contents__title">
+    <%= theme.title %>
+  </div>
+  <div class="result-contents__user">
+    <%= theme.user_id %>
+  </div>
   <%# 回答済かを確認する %>
-  <%if Answer.find_by(theme_id: theme.id, user_id: current_user.id).nil? %>
-    <%= link_to '回答する', new_answer_path(@theme,:theme_id => theme.id) %>
-  <%else%>
-    <% answer = Answer.find_by(theme_id: theme.id, user_id: current_user.id) %>
-    <%= link_to '結果を確認する' ,answer_path(answer.id) %>
-  <% end %>
+  <div class="result-contents__link">
+    <%if Answer.find_by(theme_id: theme.id, user_id: current_user.id).nil? %>
+      <%= link_to '回答する', new_answer_path(@theme,:theme_id => theme.id) %>
+    <%else%>
+      <% answer = Answer.find_by(theme_id: theme.id, user_id: current_user.id) %>
+      <%= link_to '結果を確認する' ,answer_path(answer.id) %>
+    <% end %>
+  </div>
+</div>
 <% end %>
+
+<div class="return-top">
+  <%= link_to 'トップへもどる' ,root_path %>
+</div>

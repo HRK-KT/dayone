@@ -91,3 +91,68 @@
     border: 1px solid lightgray;
   }
 }
+
+
+.result-header {
+  display: flex;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #FFE600;
+
+  &__id, &__user, &__link, &__date {
+    background-color: #0DB8D9;
+    border: 1px solid lightgray;
+    width: 10%;
+  }
+
+  &__genre {
+    background-color: #0DB8D9;
+    border: 1px solid lightgray;
+    width: 20%;
+  }
+
+  &__title {
+    background-color: #0DB8D9;
+    border: 1px solid lightgray;
+    width: 50%;
+  }
+
+}
+
+.result-contents {
+  display: flex;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin: 2px 0px;
+
+  &__id, &__user, &__date {
+    background-color: white;
+    border: 1px solid lightgray;
+    width: 10%;
+  }
+
+  &__genre {
+    background-color: white;
+    border: 1px solid lightgray;
+    width: 20%;
+  }
+
+  &__title {
+    background-color: white;
+    border: 1px solid lightgray;
+    width: 50%;
+  }
+
+  &__link {
+    background-color: white;
+    border: 1px solid lightgray;
+    width: 10%;
+    text-decoration: underline;
+    color: #0DB8D9;
+    font-weight: bold;
+  }
+
+}
+

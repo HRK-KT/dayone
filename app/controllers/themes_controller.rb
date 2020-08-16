@@ -4,6 +4,7 @@ before_action :set_current_user
   
   def index
     @themes = Theme.where(user_id: current_user.id)
+    @counts = Theme.where(user_id: current_user.id).count
   end
 
   def new
@@ -16,6 +17,7 @@ before_action :set_current_user
 
   def search
     @themes = Theme.search(params[:keyword])
+    @counts = Theme.search(params[:keyword]).count
   end
 
   private
