@@ -2,7 +2,9 @@
   height: 100vh;
   background-color: #FFE600;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
 }
 
 .answer-area {
@@ -17,7 +19,6 @@
     height: 100px;
     line-height: 100px;
     padding-left: 30px;
-    padding-top: 10px;
     font-size: 32px;
     font-weight: bold;
     color: #FFE600;
@@ -95,4 +96,65 @@
   }
 
 
+  .theme-area {
+    background-color: #F08A37;
+    border-radius: 20px;
+    height: 200px;
+    width: 80vw;
+    margin-top: 20px;
+  }
+    
+  .theme-post {
+      height: 80px;
+      line-height: 80px;
+      padding-left: 30px;
+      font-size: 32px;
+      font-weight: bold;
+      color: #FFE600;
+    }
+  
+  .theme-start {
+    display: flex;
+    margin: 10px;
+    padding: 0px 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .theme-guide {
+      height: 80px;
+      // background-color: cornflowerblue;
+      width: 50vw;
+      color: white;
+      border: 1px solid white;
+      border-radius: 10px;
+  
+      &__message {
+        padding-left: 10px;
+        height: 40px;
+        line-height: 40px;
+        font-weight: bold;
+      }
+  
+  
+    }
+  
+  
+  
+  .theme-link {
+      height: 50px;
+      text-align:center;
+      line-height: 50px;
+      background-color: #EA5419;
+      width: 270px;
+      color: #FFE600;
+      font-weight: bold;
+      border: 1px solid white;
+      
+    }
+  
+  
+  
+  
+  
 

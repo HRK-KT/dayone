@@ -2,6 +2,10 @@
  *= require_tree .
  *= require_self
  */
+body {
+  background-color: #FFE600;
+  font-family: 'Wawati SC',sans-serif;
+}
 
 @import "reset";
 @import "header";

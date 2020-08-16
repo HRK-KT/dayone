@@ -1,91 +1,106 @@
-answer page 
-<div class="history-header">
-  <div class="history-header__date">
-    回答日時
-  </div>
-  <div class="history-header__id">
-    お題ID
-  </div>
-  <div class="history-header__genre">
-    ジャンル
-  </div>
-  <div class="history-header__title">
-    お題タイトル
-  </div>
-  <div class="history-header__answer">
-    あなたの答
-  </div>
-  <div class="history-header__judge">
-    判定
-  </div>
-  <div class="history-header__detail">
-    詳細リンク
-  </div>
-</div>
+<div class="answer-head">
+  過去のあなたの回答
+</div> 
 
-<% majority_count = 0 %>
-<% minority_count = 0 %>
-<% unknown_count = 0 %>
-
-<% @answers.each do |answer| %>
-  <% @themes.each do |theme| %>
-      <% if theme.id == answer.theme_id %>
-      <div class="history-contents">
-        <div class="history-contents__date">
-          <%= answer.created_at %>
-        </div>
-        <div class="history-contents__id">
-          <%= theme.id %>
-        </div>
-        <div class="history-contents__genre">
-          <% if theme.genre == 0 %>
-					  生活
-				  <% elsif theme.genre == 1 %>
-					  教養・文化
-          <% elsif theme.genre == 2 %>
-            仕事
-          <% elsif theme.genre == 3 %>
-            恋愛・性
-          <% elsif theme.genre == 4 %>
-            宗教
-          <% elsif theme.genre == 5 %>
-            趣味・娯楽
-          <%end%>
-        </div>
-        <div class="history-contents__title">
-          <%= theme.title %>
-        </div>
-        <div class="history-contents__answer">
-          <% if answer.answer == "answer1" %>       
-            <%= theme.answer1 %>
-            <% your_ans_count = Answer.where(theme_id: theme.id, answer: "answer1").count %>
-          <% elsif answer.answer == "answer2" %>
-            <%= theme.answer2 %>
-            <% your_ans_count = Answer.where(theme_id: theme.id, answer: "answer2").count %>
-          <% end %>
-        </div>
-        <div class="history-contents__judge">
-          <% answers_count = Answer.where(theme_id: theme.id).count %>
-          <% if (your_ans_count.to_f / answers_count) > 0.5 %>
-          多数
-          <% majority_count = majority_count + 1 %>
-          <% elsif (your_ans_count.to_f / answers_count) < 0.5 %>
-          少数
-          <% minority_count = minority_count + 1 %>
-          <% else %>
-          不明
-          <% unknown_count = unknown_count + 1%>
-          <% end %>
-        </div>
-        <%= link_to "詳細確認", answer_path(answer.id), class: "history-contents__detail" %>
-      <% end %>
+  <div class="history-header">
+    <div class="history-header__date">
+      回答日時
     </div>
-  <% end %>
-<% end %>
+    <div class="history-header__id">
+      お題ID
+    </div>
+    <div class="history-header__genre">
+      ジャンル
+    </div>
+    <div class="history-header__title">
+      お題タイトル
+    </div>
+    <div class="history-header__answer">
+      あなたの答
+    </div>
+    <div class="history-header__judge">
+      判定
+    </div>
+    <div class="history-header__detail">
+      詳細リンク
+    </div>
+  </div>
 
-多数回答
-  <%= majority_count %>
-少数回答
-  <%= minority_count %>
-不明回答
-  <%= unknown_count %>
+  <% majority_count = 0 %>
+  <% minority_count = 0 %>
+  <% unknown_count = 0 %>
+
+  <% @answers.each do |answer| %>
+    <% @themes.each do |theme| %>
+        <% if theme.id == answer.theme_id %>
+        <div class="history-contents">
+          <div class="history-contents__date">
+            <%= answer.created_at %>
+          </div>
+          <div class="history-contents__id">
+            <%= theme.id %>
+          </div>
+          <div class="history-contents__genre">
+            <% if theme.genre == 0 %>
+              生活
+            <% elsif theme.genre == 1 %>
+              教養・文化
+            <% elsif theme.genre == 2 %>
+              仕事
+            <% elsif theme.genre == 3 %>
+              恋愛・性
+            <% elsif theme.genre == 4 %>
+              宗教
+            <% elsif theme.genre == 5 %>
+              趣味・娯楽
+            <%end%>
+          </div>
+          <div class="history-contents__title">
+            <%= theme.title %>
+          </div>
+          <div class="history-contents__answer">
+            <% if answer.answer == "answer1" %>       
+              <div class="answer1">
+                <%= theme.answer1 %>
+                <% your_ans_count = Answer.where(theme_id: theme.id, answer: "answer1").count %>
+              </div>
+            <% elsif answer.answer == "answer2" %>
+              <div class="answer2">
+                <%= theme.answer2 %>
+                <% your_ans_count = Answer.where(theme_id: theme.id, answer: "answer2").count %>
+              </div>
+            <% end %>
+          </div>
+          <div class="history-contents__judge">
+            <% answers_count = Answer.where(theme_id: theme.id).count %>
+            <% if (your_ans_count.to_f / answers_count) > 0.5 %>
+            <div class="majority">
+             多数
+            </div>
+            <% majority_count = majority_count + 1 %>
+            <% elsif (your_ans_count.to_f / answers_count) < 0.5 %>
+            <div class="minority">
+              少数
+            </div>
+            <% minority_count = minority_count + 1 %>
+            <% else %>
+            <div class="unsettled">
+              半々
+            </div>
+            <% unknown_count = unknown_count + 1%>
+            <% end %>
+          </div>
+          <%= link_to "詳細確認", answer_path(answer.id), class: "history-contents__detail" %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
+<div class="count-result">
+  多数回答
+    <%= majority_count %>
+  少数回答
+    <%= minority_count %>
+  不明回答
+    <%= unknown_count %>
+</div>

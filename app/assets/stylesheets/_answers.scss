@@ -1,20 +1,30 @@
-.answer-new {
-  text-align: center;
+.answer-head {
+  background-color: #A2CA0E;
+  color: #FFE600;
+  height: 40px;
+  line-height: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  padding-left: 20px;
+  margin: 10px 0px;
 }
 
 .theme-id {
   display: flex;
   align-items: center;
-  height:40px;
-  background-color: lightpink;
+  height:60px;
 
   &__info{
+    font-size: 18px;
+    
   }
 
   &__box{
     border: 1px solid gray;
-    width:40px;
+    width:60px;
     margin-left: 10px;
+    background-color: snow;
+    text-align: center;
   }
 
 }
@@ -22,6 +32,7 @@
 .theme-title {
   text-align: center;
   margin: 20px 0px;
+  
 
   &__info {
     font-size: 24px;
@@ -30,6 +41,7 @@
 
   &__body {
     font-size: 36px;
+    font-weight: bold;
   }
 
   &__genre{
@@ -55,19 +67,33 @@
   justify-content: center;
   padding: 5px;
 
-  &__select{
-    margin: 5px;
+  &__select1{
+    background-color: #A2CA0E;
+    margin: 15px;
     width: 150px;
     height: 60px;
     padding: 0px 5px;
     text-align: center;
     
-    border: 2px solid gray;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     }
+
+    &__select2{
+      background-color: #F08A37;
+      margin: 15px;
+      width: 150px;
+      height: 60px;
+      padding: 0px 5px;
+      text-align: center;
+      
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      }
 }
 
 // 機能してない
@@ -77,7 +103,7 @@
 // }
 
 .check-label {
-  color:red;
+  color:white;
   height:35px;
   line-height: 35px;
 }
@@ -92,60 +118,102 @@
   text-align: center;
   height: 50px;
   width:130px;
-  background-color: turquoise;
+  color: #FFE600;
+  background-color: #EA5419;
+  
 }
 
 
 .history-header{
   display:flex;
   width: 100%;
-  background-color: darkslateblue;
-  height: 50px;
-  line-height: 50px;
-  color: white;
+  font-weight: bold;
+  height: 40px;
+  line-height: 40px;
+  color: #FFE600;
   text-align: center;
 
   &__date{
     width: 20%;
     border: 1px solid lightgray;
+
+    background-color: #0DB8D9;
+
   }
   &__id{
     width: 10%;
     border: 1px solid lightgray;
+ 
+    background-color: #0DB8D9;
+
   }
   &__genre{
     width: 10%;
     border: 1px solid lightgray;
+  
+    background-color: #0DB8D9;
+
   }
   &__title{
     width: 30%;
     border: 1px solid lightgray;
+
+    background-color: #0DB8D9;
+
   }
   &__answer{
     width: 10%;
     border: 1px solid lightgray;
+
+    background-color: #0DB8D9;
+
   }
 
   &__judge {
     width: 10%;
     border: 1px solid lightgray;
+
+    background-color: #0DB8D9;
+
   }
 
   &__detail{
     width: 10%;
     border: 1px solid lightgray;
+    background-color: #0DB8D9;
+
   }
+}
+
+.answer1 {
+  background-color: #A2CA0E;
+}
+
+.answer2 {
+  background-color: #F08A37;
+}
+
+.majority {
+  background-color: #0DB8D9;
+}
+
+.minority {
+  background-color: #EA5419;
+}
+
+.unsettled {
+  background-color: gray;
 }
 
 .history-contents{
   display: flex;
   width: 100%;
-  background-color: lightcyan;
+  background-color: white;
   height: 50px;
   line-height: 50px;
-  color:darkmagenta;
   text-align: center;
   font-size: 1.2vw;
+  margin-top: 2px;
 
   &__date{
     width: 20%;
@@ -181,9 +249,18 @@
   &__detail{
     width: 10%;
     border: 1px solid lightgray;
+    text-decoration: underline;
   }
 
 }
+
+
+.count-result {
+  position: absolute;
+  top: 120px;
+  right: 50px;
+}
+
 
 .theme-info {
   display:flex;

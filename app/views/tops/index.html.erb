@@ -22,16 +22,24 @@
         <%= form.submit "検索", class: "search-btn" %>
       <% end %>
     </div>
+  </div>
 
+  <div class="theme-area">
+    <div class="theme-post">
+      お題を投稿する
+    </div>
+    <div class="theme-start">
+      <div class="theme-guide">
+        <div class="theme-guide__message">
+          あなたが気になるお題を投稿してみましょう。あなたの意見はみんなと同じ？
+        </div>
+        <div class="theme-guide__message">
+          ※ログインが必要です
+        </div>
+      </div>
+      <div class="theme-link">
+        <%= link_to 'お題を投稿する' , new_theme_path %>
+      </div>
+    </div>
   </div>
 </div>
-
-
-<%= link_to 'お題の新規投稿' , new_theme_path %>
-<%= link_to '投稿したお題一覧' , themes_path %>
-
-<%= link_to '回答一覧' , answers_path %>
-
-
-<%= link_to 'ユーザー更新', edit_user_path(current_user) %>
-<%= link_to 'マイページ', user_path(current_user) %>
