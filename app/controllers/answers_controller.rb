@@ -12,13 +12,15 @@ class AnswersController < ApplicationController
     # 検索からきた場合、特定の問題に答えられるように分岐
     if request.referer&.include?("/themes/search")
       get_designated_theme
-    else
+    elsif user_signed_in?
       get_randam_theme
       # 答えられる回答なければリダイレクト
       if @response == 0
         redirect_to root_path
       end
       @answer = Answer.new
+    else
+      redirect_to new_user_session_path
     end
   end
 

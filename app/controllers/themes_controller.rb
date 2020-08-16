@@ -8,7 +8,11 @@ before_action :set_current_user
   end
 
   def new
-    @theme = Theme.new
+    if user_signed_in?
+      @theme = Theme.new
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
@@ -16,8 +20,12 @@ before_action :set_current_user
   end
 
   def search
-    @themes = Theme.search(params[:keyword])
-    @counts = Theme.search(params[:keyword]).count
+    if user_signed_in?
+      @themes = Theme.search(params[:keyword])
+      @counts = Theme.search(params[:keyword]).count
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   private
