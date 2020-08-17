@@ -8,6 +8,10 @@
       <%=form.label :name, "ユーザー名", class:"edit-username__label" %>
       <%=form.text_field :name, placeholder: "指名を入力", default: @user.name, class:"edit-username__form" %>
     </div>
+    
+      <%= form.label :image, class:'Form_inputBox'%>
+      <%= form.file_field :image %>
+
     <div class="edit-sex">
       <%=form.label :sex, "性別", class:"edit-sex__label"%>
       <div class="edit-sex__form">
