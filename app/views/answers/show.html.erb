@@ -112,7 +112,8 @@
 </div>
 
 <div class="return-answer-page">
-  <%= link_to '回答一覧へ戻る' , answers_path %>
+  <%= link_to '回答一覧へ戻る' , answers_path %></br>
+  <%= link_to "答え直す", edit_answer_path(@answer.id) %>
 </div>
 
 

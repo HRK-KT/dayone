@@ -28,6 +28,15 @@ before_action :set_current_user
     end
   end
 
+  def edit
+    @theme = Theme.find(params[:id])
+  end
+
+  def update
+    @theme = Theme.find(params[:id])
+    @theme.update(theme_params)
+  end
+
   private
   def theme_params
     params.require(:theme).permit(:title, :image, :answer1, :answer2, :genre).merge(user_id: current_user.id)

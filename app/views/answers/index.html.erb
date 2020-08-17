@@ -4,7 +4,7 @@
 
   <div class="history-header">
     <div class="history-header__date">
-      回答日時
+      回答日
     </div>
     <div class="history-header__id">
       お題ID
@@ -16,10 +16,13 @@
       お題タイトル
     </div>
     <div class="history-header__answer">
-      あなたの答
+      回答
     </div>
     <div class="history-header__judge">
       判定
+    </div>
+    <div class="history-header__judge">
+      再回答
     </div>
     <div class="history-header__detail">
       詳細リンク
@@ -90,6 +93,7 @@
             <% unknown_count = unknown_count + 1%>
             <% end %>
           </div>
+          <%= link_to "答え直す", edit_answer_path(answer.id), class: "history-contents__detail" %>
           <%= link_to "詳細確認", answer_path(answer.id), class: "history-contents__detail" %>
         <% end %>
       </div>

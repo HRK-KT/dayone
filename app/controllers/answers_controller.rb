@@ -42,6 +42,18 @@ class AnswersController < ApplicationController
     @your_ans_count = Answer.where(theme_id: theme_id, answer: @answer.answer).count
   end
 
+  def edit
+    @answer = Answer.find(params[:id])
+    theme_id = @answer.theme_id
+    @theme = Theme.find(theme_id)
+  end
+
+  def update
+    @answer = Answer.find(params[:id])
+    @answer.update(answer_params)
+  end
+
+
   private
   def answer_params
     params.require(:answer).permit(:answer,:theme_id).merge(user_id: current_user.id)
