@@ -79,7 +79,7 @@
 
 
 .mypage {
-  height:calc(100% - 100px);
+  // height:calc(100% - 100px);
   display: flex;
 }
 .side-bar {
@@ -131,4 +131,19 @@
 
 .answer-total-result {
   margin-left:20px;
+}
+
+.stack {
+  margin-left: 20px;
+  margin-top: 10px;
+  background-color: ivory;
+  width: 80%;
+}
+
+.lador {
+  margin-left: 20px;
+  margin-top: 10px;
+  background-color: ivory;
+  width: 80%;
+  padding: 30px;
 }

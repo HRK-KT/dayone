@@ -65,40 +65,98 @@
     <div class="user-head">
       回答内容分析
     </div>
-    <div class="total-answer-info">
-      <%# ここは要検討（省略すべき） %>
-        <% majority_count = 0 %>
-        <% minority_count = 0 %>
-        <% unknown_count = 0 %>
-        <% @answers.each do |answer| %>
-          <% @themes.each do |theme| %>
-            <% if theme.id == answer.theme_id %>
-              <% if answer.answer == "answer1" %>       
-                <% theme.answer1 %>
-                <% your_ans_count = Answer.where(theme_id: theme.id, answer: "answer1").count %>
-              <% elsif answer.answer == "answer2" %>
-                <% theme.answer2 %>
-                <% your_ans_count = Answer.where(theme_id: theme.id, answer: "answer2").count %>
-              <% end %>
-              <% answers_count = Answer.where(theme_id: theme.id).count %>
-                <% if (your_ans_count.to_f / answers_count) > 0.5 %>
-                  <% majority_count = majority_count + 1 %>
-                <% elsif (your_ans_count.to_f / answers_count) < 0.5 %>
-                  <% minority_count = minority_count + 1 %>
-                <% else %>
-                  <% unknown_count = unknown_count + 1%>
-                <% end %>
-            <% end %>
-          <% end %>
-        <% end %>
-      <div class="answer-total-result">
-        多数回答
-          <%= majority_count %>
-        少数回答
-          <%= minority_count %>
-        不明回答
-          <%= unknown_count %>
-      </div>
+
+    <div class="answer-total-result">
+      多数回答
+        <%= @total_majority_count %>
+      少数回答
+        <%= @total_minority_count %>
+      不明回答
+        <%= @total_unknown_count %>
     </div>
+
+
+
+    <div class="stack">
+    <canvas id="myChart1" width="700" height="200"></canvas>
+
+    <script>
+    var ctx = document.getElementById('myChart1').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'horizontalBar',
+      data: {
+        labels: ["回答傾向"],
+        datasets: [
+          { label: "多数派",    data: [gon.total_majority_count],  backgroundColor: "rgba(244, 143, 177, 1.0)" },
+          { label: "少数派",   data: [gon.total_minority_count],  backgroundColor: "rgba(100, 181, 246, 1.0)" },
+          { label: "不明", data: [gon.total_unknown_count], backgroundColor: "rgba(200, 200, 200, 1.0)" }
+          
+        ]
+          
+        },
+        options: {
+            responsive: false,
+            scales: {
+              xAxes:[{
+                stacked: true
+              }],
+              yAxes:[{
+                stacked: "100%"
+              }]
+            }
+        }
+    });
+    </script>
+
+    </div>
+
+ジャンル別回答数：
+生活：<%= @majority_count_life + @minority_count_life + @unknown_count_life %>
+教養・文化：<%= @majority_count_culture + @minority_count_culture + @unknown_count_culture %>
+仕事：<%= @majority_count_work + @minority_count_work + @unknown_count_work %>
+恋愛・性：<%= @majority_count_love + @minority_count_love + @unknown_count_love %>
+宗教：<%= @majority_count_religion + @minority_count_religion + @unknown_count_religion %>
+趣味・娯楽：<%= @majority_count_hobby + @minority_count_hobby + @unknown_count_hobby %>
+
+
+    <div class="lador">
+    <canvas id="myChart2" width="500" height="500"></canvas>
+
+    <script>
+    var ctx = document.getElementById('myChart2').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['生活', '教養・文化', '仕事', '恋愛・性', '宗教', '趣味・娯楽'],
+            datasets: [{
+                label: 'ジャンル別の分布（多数回答）',
+                data: [gon.majority_count_life/(gon.majority_count_life + gon.majority_count_life + gon.unknown_count_life), gon.majority_count_culture / (gon.majority_count_culture + gon.minority_count_culture + gon.unknown_count_culture), gon.majority_count_work / (gon.majority_count_work + gon.minority_count_work + gon.unknown_count_work), gon.majority_count_love / (gon.majority_count_love + gon.minority_count_love + gon.unknown_count_love), gon.majority_count_religion / (gon.majority_count_religion + gon.minority_count_religion + gon.unknown_count_religion), gon.majority_count_hobby / (gon.majority_count_hobby + gon.minority_count_hobby + gon.unknown_count_hobby)],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: false
+        }
+    });
+    </script>
+
+    </div>
+
   </div>
 </div>

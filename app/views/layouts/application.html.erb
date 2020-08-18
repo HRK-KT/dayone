@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Dayone</title>
+    <%= include_gon %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +11,8 @@
   </head>
 
   <body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
    <header class="header">
       <div class="header__bar row">
         <h1 class="grid-6"><a class="title", href="/">Title</a></h1>
