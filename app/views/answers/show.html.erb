@@ -68,9 +68,6 @@
       <%= @answers_count %>
   </div>
 
-
-
-
 <div class="detail-breakdown">    
   <div class="detail-breakdown__answer1">
  
@@ -121,23 +118,76 @@
   <div class="comment-title">
     コメント
   </div>
- <div class="submit-btn">
-  <%= link_to 'コメントを投稿', new_answer_comment_path(@answer.id) %>
+
+ <div class="send-comment">
+  <%= form_with(model:[@answer,@comment], local:true) do |form| %>
+    <%= form.hidden_field :theme_id, :value => @theme.id %>
+    <% if (@your_ans_count.to_f / @answers_count) > 0.5 %>
+      <%= form.hidden_field :judge, :value => 1 %>
+    <% elsif (@your_ans_count.to_f / @answers_count) < 0.5 %>
+      <%= form.hidden_field :judge, :value => 2 %>
+    <% elsif (@your_ans_count.to_f / @answers_count) == 0.5%>
+      <%= form.hidden_field :judge, :value => 0 %>
+    <% end %>
+    <div class="new-comment">
+      <div class="new-comment-form">
+        <%= form.text_field :comment, placeholder: "コメントを入力してね", class: "new-comment-box" %>
+      </div>
+    </div>
+    <div class="submit-btn">
+      <%= form.submit "投稿する"%>
+    </div>
+  <% end %>
  </div>
 
   <div class="comment">
-    コメント一覧
-    <div class="comment-body">
+    ★コメント一覧★
+  <div class="comment-header">
+    <div class="comment-header__datetime">
+      投稿日時
+    </div>
+    <div class="comment-header__name">
+      ユーザー名
+    </div>
+    <div class="comment-header__judge">
+      投稿時の判定
+    </div>
+    <div class="comment-header__comment">
+      コメント
+    </div>
+  </div>
+  
       <% if @comments.empty? %>
         まだコメントはありません
       <% else %>
         <% @comments.each do |comment| %>
-        <%= comment.created_at %>
-        <%= link_to "#{User.find(@theme.user_id).name}", user_path(@theme.user_id) %>
-        <%= comment.comment %>
+        <div class="comment-value">
+          <div class="comment-value__datetime">
+            <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>
+          </div>
+          <div class="comment-value__name">
+            <%= link_to "#{User.find(@theme.user_id).name}", user_path(@theme.user_id) %>
+          </div>
+            <% if comment.judge == 1 %>
+              <div class="comment-value__judge1">
+                多数
+              </div>
+            <% elsif comment.judge == 2 %>
+              <div class="comment-value__judge2">
+                少数
+              </div>
+            <% elsif comment.judge == 0 %>
+              <div class="comment-value__judge0">
+                半々
+              </div>
+            <% end %>
+          <div class="comment-value__comment">
+            <%= comment.comment %>
+          </div>
+        </div>
         <% end %>
-      <% end %>
-    </div>
+    <% end %>
+    
   </div>
 </div>
 

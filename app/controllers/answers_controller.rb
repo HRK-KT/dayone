@@ -40,7 +40,8 @@ class AnswersController < ApplicationController
     # 回答カウントの取得
     @answers_count = Answer.where(theme_id: theme_id).count
     @your_ans_count = Answer.where(theme_id: theme_id, answer: @answer.answer).count
-    # コメント情報の取得
+    # コメント投稿用インスタンスの生成と情報取得
+    @comment = Comment.new
     @comments = Comment.where(theme_id: theme_id)
   end
 

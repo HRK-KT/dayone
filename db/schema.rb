@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_08_19_003927) do
     t.bigint "theme_id"
     t.bigint "answer_id"
     t.text "comment", null: false
+    t.integer "judge"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["answer_id"], name: "index_comments_on_answer_id"
