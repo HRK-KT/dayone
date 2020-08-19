@@ -47,7 +47,7 @@
     <%= theme.title %>
   </div>
   <div class="result-contents__user">
-    <%= theme.user_id %>
+    <%=link_to "#{User.find(theme.user_id).name}", user_path(theme.user_id) %>
   </div>
   <%# 回答済かを確認する %>
   <div class="result-contents__link">

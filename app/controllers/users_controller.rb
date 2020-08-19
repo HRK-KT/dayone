@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def show 
     @user = User.find(params[:id])
-    @answers = Answer.where(user_id: current_user.id)
+    @answers = Answer.where(user_id: @user.id)
     theme_ids = @answers.pluck(:theme_id)
     @themes = Theme.find(theme_ids)
     get_answer_count(@answers,@themes)

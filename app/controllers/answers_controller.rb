@@ -10,7 +10,7 @@ class AnswersController < ApplicationController
 
   def new
     # 検索からきた場合、特定の問題に答えられるように分岐
-    if request.referer&.include?("/themes/search")
+    if request.referer&.include?("/themes/search") or request.referer&.include?("/themes") 
       get_designated_theme
     elsif user_signed_in?
       get_randam_theme
@@ -37,9 +37,11 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     theme_id = @answer.theme_id
     @theme = Theme.find(theme_id)
- 
+    # 回答カウントの取得
     @answers_count = Answer.where(theme_id: theme_id).count
     @your_ans_count = Answer.where(theme_id: theme_id, answer: @answer.answer).count
+    # コメント情報の取得
+    @comments = Comment.where(theme_id: theme_id)
   end
 
   def edit
