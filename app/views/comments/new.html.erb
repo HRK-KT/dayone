@@ -1,0 +1,23 @@
+new comment
+
+ <%= form_with(model:[@answer,@comment], local:true) do |form| %>
+    <div class="theme-id">
+      <%= form.label :theme_id, "お題ID:", class:"new-comment__label"%>
+      <%= form.text_field :theme_id, value: @theme.id , class:"new-comment__form"%>
+    </div>
+
+    <div class="target-theme">
+      
+    </div>
+
+    
+    <div class="new-comment">
+      <%= form.label :comment, "コメント :", class:"new-comment__label"%>
+      <%= form.text_field :comment, placeholder: "コメントを入力してね", class:"new-comment__form"%>
+    </div>
+
+
+    <div class="submit-btn">
+      <%= form.submit "投稿する"%>
+    </div>
+  <% end %>

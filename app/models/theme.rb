@@ -2,6 +2,7 @@ class Theme < ApplicationRecord
 
   belongs_to :user
   has_many :answers
+  has_many :comments
 
   mount_uploader :image, ImageUploader
 

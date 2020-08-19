@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_013107) do
+ActiveRecord::Schema.define(version: 2020_08_19_003927) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "theme_id"
@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(version: 2020_08_17_013107) do
     t.index ["theme_id", "user_id"], name: "index_answers_on_theme_id_and_user_id", unique: true
     t.index ["theme_id"], name: "index_answers_on_theme_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "theme_id"
+    t.bigint "answer_id"
+    t.text "comment", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["answer_id"], name: "index_comments_on_answer_id"
+    t.index ["theme_id"], name: "index_comments_on_theme_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "themes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -55,5 +67,8 @@ ActiveRecord::Schema.define(version: 2020_08_17_013107) do
 
   add_foreign_key "answers", "themes"
   add_foreign_key "answers", "users"
+  add_foreign_key "comments", "answers"
+  add_foreign_key "comments", "themes"
+  add_foreign_key "comments", "users"
   add_foreign_key "themes", "users"
 end

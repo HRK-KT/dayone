@@ -12,31 +12,31 @@
     </div>
   </div>
   <div class="result-info">
-  <div class="result-info__label">
-    あなたの回答は
+    <div class="result-info__label">
+      あなたの回答は
+    </div>
+    <div class="result-info__value">
+      <% if (@your_ans_count.to_f / @answers_count) > 0.5 %>
+        多数派です！
+      <% elsif (@your_ans_count.to_f / @answers_count) < 0.5 %>
+        少数派です！
+      <% else %>
+        どちらでもない：現在意見が分かれています！
+      <% end %>
+    </div>
   </div>
-  <div class="result-info__value">
-    <% if (@your_ans_count.to_f / @answers_count) > 0.5 %>
-      多数派です！
-    <% elsif (@your_ans_count.to_f / @answers_count) < 0.5 %>
-      少数派です！
-    <% else %>
-      どちらでもない：現在意見が分かれています！
-    <% end %>
-  </div>
-</div>
 
   <div class="create-user">
     <div class="create-user__label">
       作成者 : 
     </div>
     <div class="create-user__value">
-      <%= @theme.user_id %>
+      <%=link_to "#{User.find(@theme.user_id).name}", user_path(@theme.user_id) %>
     </div>
   </div>
 </div>
 
-	<div class="theme-title">
+<div class="theme-title">
 			<div class="theme-title__info">
       	お題：
     	</div>
@@ -63,10 +63,10 @@
 			</div>
 
 
-<div class="answer-count">
-    現在の回答数：
-    <%= @answers_count %>
-</div>
+  <div class="answer-count">
+      現在の回答数：
+      <%= @answers_count %>
+  </div>
 
 
 
@@ -115,6 +115,29 @@
   <%= link_to '回答一覧へ戻る' , answers_path %></br>
   <%= link_to "答え直す", edit_answer_path(@answer.id) %>
 </div>
+</div>
+<div class="comment-area">
 
+  <div class="comment-title">
+    コメント
+  </div>
+ <div class="submit-btn">
+  <%= link_to 'コメントを投稿', new_answer_comment_path(@answer.id) %>
+ </div>
 
+  <div class="comment">
+    コメント一覧
+    <div class="comment-body">
+      <% if @comments.empty? %>
+        まだコメントはありません
+      <% else %>
+        <% @comments.each do |comment| %>
+        <%= comment.created_at %>
+        <%= link_to "#{User.find(@theme.user_id).name}", user_path(@theme.user_id) %>
+        <%= comment.comment %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
