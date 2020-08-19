@@ -101,7 +101,7 @@ class UsersController < ApplicationController
             end
               answers_count_culture = Answer.where(theme_id: theme.id).count
               if (your_ans_count_culture.to_f / answers_count_culture) > 0.5
-                @majority_count_culture = @majority_count_life + 1
+                @majority_count_culture = @majority_count_culture + 1
               elsif (your_ans_count_culture.to_f / answers_count_culture) < 0.5
                 @minority_count_culture = @minority_count_culture + 1
               else
@@ -168,7 +168,7 @@ class UsersController < ApplicationController
       end
     end
     @total_majority_count = @majority_count_life + @majority_count_culture + @majority_count_work + @majority_count_love + @majority_count_religion + @majority_count_hobby
-    @total_minority_count = @minority_count_life + @majority_count_culture + @minority_count_work + @minority_count_love + @minority_count_religion + @minority_count_hobby
+    @total_minority_count = @minority_count_life + @minority_count_culture + @minority_count_work + @minority_count_love + @minority_count_religion + @minority_count_hobby
     @total_unknown_count = @unknown_count_life + @unknown_count_culture + @unknown_count_work + @unknown_count_love + @unknown_count_religion + @unknown_count_hobby
   end
 
