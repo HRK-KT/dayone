@@ -166,7 +166,7 @@
             <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>
           </div>
           <div class="comment-value__name">
-            <%= link_to "#{User.find(@theme.user_id).name}", user_path(@theme.user_id) %>
+            <%= link_to "#{User.find(comment.user_id).name}", user_path(comment.user_id) %>
           </div>
             <% if comment.judge == 1 %>
               <div class="comment-value__judge1">
