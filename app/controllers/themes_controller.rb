@@ -21,8 +21,14 @@ before_action :set_current_user
 
   def search
     if user_signed_in?
-      @themes = Theme.search(params[:keyword])
-      @counts = Theme.search(params[:keyword]).count
+      if params[:genre].empty?
+        @themes = Theme.search(params[:keyword])
+        @counts = Theme.search(params[:keyword]).count
+      else
+        @themes = Theme.search(params[:keyword])
+        @themes = @themes.where(genre: params[:genre])
+        @counts = @themes.count
+      end
     else
       redirect_to new_user_session_path
     end

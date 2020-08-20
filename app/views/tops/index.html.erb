@@ -19,6 +19,7 @@
     <div class="answer-search">
       <%= form_with(url: search_themes_path, local: true, method: :get, class: "search-form") do |form| %>
         <%= form.text_field :keyword, placeholder: "検索したいワードを入力", class: "search-input" %>
+        <%= form.select :genre, [["ジャンルを指定", nil],["生活", 0], ["教養・文化", 1], ["仕事", 2], ["恋愛・性", 3], ["宗教", 4], ["趣味・娯楽", 5]], {}, class:"search-genre" %>
         <%= form.submit "検索", class: "search-btn" %>
       <% end %>
     </div>
