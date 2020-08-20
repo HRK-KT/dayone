@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-
   end
+
+  post '/answers/:answers_id/:comment_id/likes' => "likes#create"
+  delete '/answers/:answers_id/:comment_id/likes' => "likes#destroy"
+
 end

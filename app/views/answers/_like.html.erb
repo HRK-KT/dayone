@@ -1,0 +1,14 @@
+<div class="dayone__icon">
+  <% if Like.find_by(user_id: current_user.id, comment_id: comment.id) %>
+    <%= link_to "/answers/#{comment.answer_id}/#{comment.id}/likes", method: :delete, remote: true do %>
+      <i class="fas fa-heart"></i>
+    <% end %>
+  <% else %>
+    <%= link_to "/answers/#{comment.answer_id}/#{comment.id}/likes", method: :post, remote: true do %>
+      <i class="far fa-heart"></i>
+    <% end %>
+  <% end %>
+</div>
+<div class= "dayone__text">
+  <%= comment.likes.length %>
+</div>

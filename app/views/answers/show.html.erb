@@ -184,6 +184,12 @@
           <div class="comment-value__comment">
             <%= comment.comment %>
           </div>
+          <%# いいね部分 %>
+          <td>
+          <div id ="like-<%= comment.id %>", class="dayone" >
+            <%= render partial: "like", locals: {comment:comment} %>
+          </div>
+          </td>
         </div>
         <% end %>
     <% end %>

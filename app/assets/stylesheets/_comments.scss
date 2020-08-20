@@ -75,7 +75,7 @@
     height:25px;
     line-height: 20px;
     background-color: #0DB8D9;
-    width:45%;
+    width:49%;
     border: 1px solid lightgrey;
   }
 }
@@ -124,9 +124,33 @@
     height:25px;
     line-height: 20px;
     width:45%;
-    border: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    border-left: 1px solid lightgrey;
+    border-top: 1px solid lightgrey;
     background-color: whitesmoke;
 
   }
 
+}
+
+.dayone {
+  display: flex;
+  height:25px;
+  line-height: 25px;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  background-color: whitesmoke;
+  width:4%;
+
+  &__icon {
+    color: crimson;
+    margin-right:2px;
+    text-align: center;
+  }
+
+  &__text {
+    font-size: 9px;
+    text-align: center;
+  }
 }

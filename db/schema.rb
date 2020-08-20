@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_19_003927) do
+ActiveRecord::Schema.define(version: 2020_08_19_130704) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "theme_id"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 2020_08_19_003927) do
     t.index ["answer_id"], name: "index_comments_on_answer_id"
     t.index ["theme_id"], name: "index_comments_on_theme_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "comment_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_likes_on_comment_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "themes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -71,5 +80,7 @@ ActiveRecord::Schema.define(version: 2020_08_19_003927) do
   add_foreign_key "comments", "answers"
   add_foreign_key "comments", "themes"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "comments"
+  add_foreign_key "likes", "users"
   add_foreign_key "themes", "users"
 end
