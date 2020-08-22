@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   private 
 
   def user_params
-    params.require(:user).permit(:name, :email, :sex, :age, :region, :job, :image )
+    params.require(:user).permit(:name, :email, :sex, :age, :region, :job, :image, :comment )
   end
 
   def get_answer_count(answers,themes)

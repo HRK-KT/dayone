@@ -1,0 +1,132 @@
+.friend-request-title {
+  background-color: #A2CA0E;
+  color: #FFE600;
+  font-size: 20px;
+  font-weight: bold;
+  height: 25px;
+  padding-left: 20px;
+  line-height: 25px;
+}
+
+.friend-title {
+  background-color: #0DB8D9;
+  color: #FFE600;
+  font-size: 20px;
+  font-weight: bold;
+  height: 25px;
+  padding-left: 20px;
+  line-height: 25px;
+}
+
+.friend-area {
+  display: flex;
+}
+
+.friend-contents {
+  height: 500px;
+  width: 350px;
+  border: 3px solid #F08A37;
+  // background-image: url("../../assets/images/background.png");
+  background-color: #fffff0;
+  box-shadow: lightslategrey 4px 4px 2px;
+  margin: 10px;
+}
+
+.friend-contents-id {
+  display:flex;
+  margin: 10px auto;
+  width: 150px;
+
+  &__label {
+    width:100px;
+  }
+  &__value {
+    width: 50px;
+    background-color: white;
+    border: 1px solid lightgrey;
+    text-align: center;
+  }
+  
+}
+
+.contents-id-num {
+  width: 40px;
+}
+
+.friend-contents-image {
+  text-align: center;
+  line-height: 100px;
+  background-color: white;
+  border: 1px solid lightgrey;
+  margin: auto;
+  width: 300px;
+  height: 200px;
+}
+
+.friend-contents-name {
+  text-align: center;
+  
+  &__label {
+    width:300px;
+    margin: 5px auto;
+  }
+
+  &__value {
+    width: 300px;
+    background-color: white;
+    border: 1px solid lightgrey;
+    text-align: center;
+    margin: 5px auto;
+  }
+}
+
+.friend-contents-comment {
+
+  &__label {
+    width:300px;
+    margin: 5px auto;
+    text-align: center;
+  }
+
+  &__value {
+  background-color: white;
+  border: 1px solid lightgrey;
+  margin: auto;
+  width: 300px;
+  height: 140px;
+  overflow-y: scroll;
+  }
+}
+
+.friend-contents-link {
+  width:300px;
+  margin: 5px auto;
+  text-align: center;
+  color: #FFE600;
+  background-color: #EA5419;
+}
+
+.submit-area {
+  display: flex;
+  margin:5px auto;
+  justify-content: center;
+}
+
+.agree-btn {
+  width:80px;
+  text-align: center;
+  color: #FFE600;
+  background-color: #EA5419;
+  height: 20px;
+  margin-right: 5px;
+  border: 1px solid grey
+}
+
+.disagree-btn {
+  width:80px;
+  text-align: center;
+  color: #FFE600;
+  background-color: #2660AC;
+  height: 20px;
+  border: 1px solid grey
+}

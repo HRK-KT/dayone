@@ -55,11 +55,36 @@
       <div class="user-info__value">
         <%= @user.job %>
       </div>
-    </div>   
+    </div>
+    <div class="user-info">
+      <div class="user-info__label">
+        コメント : 
+      </div>
+    </div>
+      <div class="user-comment-value">
+        <%= @user.comment %>
+      </div>    
     <div class="return-top">
       <%= link_to 'トップへもどる' ,root_path %><br>
-      <%= link_to '登録内容を変更する', edit_user_path(current_user) %>
+      <%= link_to '登録内容を変更する', edit_user_path(current_user) %><br>
+      <%if @user.id == current_user.id%>
+        <% if FriendRequest.find_by(to_user_id: current_user.id) %>
+          <%= link_to '申請があります！', user_friends_path %>
+        <% else %>
+          <%= link_to 'フレンドリストを表示', user_friends_path %>
+        <% end %>
+      <% else %>
+        <% if FriendRequest.find_by(from_user_id:current_user.id ,to_user_id: @user.id) %>
+          申請中
+        <% elsif FriendRequest.find_by(from_user_id:@user.id ,to_user_id: current_user.id)%>
+          <%= link_to '申請されてます、承認しましょう！', user_friends_path %>
+        <% elsif UserFriend.find_by(user_id:current_user.id,friend_user_id: @user.id) %>
+        <% else %>
+          <%= link_to 'フレンド申請', new_user_friend_request_path(params[:id]) %>
+        <% end %>
+      <% end %>
     </div>
+
   </div>
   <div class="analyze-area">
     <div class="user-head">

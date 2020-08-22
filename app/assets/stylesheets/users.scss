@@ -62,6 +62,32 @@
   }
 }
 
+.edit-comment {
+  &__label{
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    margin-right: 10px;
+    width:200px;
+    display: block;
+    float: left;
+    
+  }
+
+  &__form{
+    width: 30vw;
+    background-color: white;
+    border: 1px solid lightgray;
+    height: 50px;
+    line-height: 50px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+}
+
+
 .form-area {
   width:100%;
 }
@@ -124,6 +150,20 @@
     background-color: white;
     text-align: center;
   }
+}
+
+.user-comment-value {
+  margin: 5px auto;
+  padding: 0px 5px;
+  width:210px;
+  height: 100px;
+  line-height: 30px;
+  border: 1px solid lightgray;
+  background-color: white;
+  overflow-y: scroll;
+  // text-overflow: ellipsis;
+  // white-space: nowrap;
+  
 }
 
 .analyze-area {

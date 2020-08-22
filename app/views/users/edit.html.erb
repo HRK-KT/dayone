@@ -34,6 +34,10 @@
         <%=form.select :job, [["会社員", 0], ["自営業", 1], ["フリー", 2], ["学生", 3], ["その他", 4]]%>
       </div>
     </div>
+    <div class="edit-comment">
+      <%=form.label :comment, "コメント", class:"edit-comment__label" %>
+      <%=form.text_field :comment, placeholder: "コメント入力", default: @user.name, class:"edit-comment__form" %>
+    </div>
     <div class="submit-btn">
       <%=form.submit "更新する"%>
     </div>

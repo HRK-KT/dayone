@@ -1,0 +1,117 @@
+<div class="user-head">
+  フレンド情報
+</div>
+
+<div class="friend-request-title">
+  承認待ち
+</div>
+
+<% if @request_users.empty? %>
+  未承認のユーザーはいません
+<% else %>
+<div class="friend-area">
+  <% @request_users.each do |user| %>
+  <div class="friend-contents">
+    <%= form_with(url: "/user_friends", local:true) do |form| %>
+      <% request_user = User.find(user.from_user_id) %>
+       <div class="friend-contents-id">
+        <div class="friend-contents-id__label">
+          ユーザーID:
+        </div>
+        <div class="friend-contents-id__value">
+          <%=form.text_field :friend_user_id, value: request_user.id, readonly: true, class:"contents-id-num" %> 
+        </div>
+      </div>
+       
+      <div class="friend-contents-image">
+        <%= image_tag request_user.image.url ,:size => '300x200'%>
+      </div>
+      <div class="friend-contents-name">
+          <div class="friend-contents-name__label">
+            ユーザー名:
+          </div>
+          <div class="friend-contents-name__value">
+            <%= request_user.name %>
+          </div>
+      </div>
+
+      <div class="friend-contents-comment">
+        <div class="friend-contents-comment__label">
+          コメント:
+
+        </div>
+        <div class="friend-contents-comment__value">
+          <% if request_user.comment.nil? %>
+            コメントはありません
+          <% else %>
+           <%= request_user.comment %>
+          <% end %>
+        </div>
+      </div>
+    
+    <div class="submit-area">
+      <%=form.submit "承認する", class:"agree-btn"%>
+      <div class="disagree-btn">
+        <%= link_to "拒否する", "/users/#{request_user.id}/friend_requests/#{user.id}", method: :delete %>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+<% end %>
+</div>
+</div>
+
+<div class="friend-title">
+  フレンドリスト
+</div>
+
+  <% if @user_friends.empty? %>
+  <div class="friend-none">
+    フレンドがいません
+  </div>
+  <% else %>
+
+<div class="friend-area">
+    <% @user_friends.each do |friend| %>
+    <div class="friend-contents">
+      <% friend_user = User.find(friend.friend_user_id)%>
+      <div class="friend-contents-id">
+        <div class="friend-contents-id__label">
+          ユーザーID:
+        </div>
+        <div class="friend-contents-id__value">
+          <%= friend_user.id %>
+        </div>
+      </div>
+      <div class="friend-contents-image">
+        <%= image_tag friend_user.image.url ,:size => '300x200' %>
+      </div>
+      <div class="friend-contents-name">
+        <div class="friend-contents-name__label">
+          ユーザー名:
+
+        </div>
+        <div class="friend-contents-name__value">
+          <%=link_to "#{friend_user.name}", user_path(friend_user.id) %>
+        </div>
+      </div>
+      <div class="friend-contents-comment">
+        <div class="friend-contents-comment__label">
+          コメント:
+        </div>
+        <div class="friend-contents-comment__value">
+          <% if friend_user.comment.nil? %>
+            コメントはありません
+          <% else %>
+           <%= friend_user.comment %>
+          <% end %>
+        </div>
+      </div>
+      <div class="friend-contents-link">
+        <%=link_to "詳細へ", user_path(friend_user.id) %>
+      </div>
+    </div>
+    <% end %>
+  
+  <% end %>
+</div>
