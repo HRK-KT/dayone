@@ -108,7 +108,8 @@
         </div>
       </div>
       <div class="friend-contents-link">
-        <%=link_to "詳細へ", user_path(friend_user.id) %>
+        <%=link_to "詳細へ", user_path(friend_user.id) %><br>
+        <%=link_to "トークを開始する", new_group_path(@group,:user_id => friend_user.id) %>
       </div>
     </div>
     <% end %>

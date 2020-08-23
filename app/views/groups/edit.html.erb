@@ -1,0 +1,8 @@
+  <%= form_with(model: @group, local:true) do |form| %>
+    <div class="group-name-edit">
+      <%= form.label :name, "トークルーム名を変更", class:"group-name-edit__label"%>
+      <%= form.text_field :name, placeholder: "トークルーム名を変更してね", class:"group-name-edit__form"%>
+    </div>
+    <%= form.collection_check_boxes :user_ids, @users, :id, :name %>
+    <%= form.submit "編集する"%>
+  <% end %>

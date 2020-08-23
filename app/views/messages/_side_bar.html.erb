@@ -1,0 +1,33 @@
+<div class="side-bar">
+  <div class="side-bar__user-name">
+    <div class="top-items">
+      <div class="top-items__name">
+        <%= current_user.name %> のトークルーム
+      </div>
+      <div class="top-items__icons">
+        <%= link_to new_group_path ,class: "top-items__btn" do %>
+          <%= icon('far', 'edit') %>
+        <% end %>
+        <%= link_to edit_user_path(current_user) ,class: "top-items__btn" do %>
+          <%= icon('fas', 'cog') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="group-info-area">
+    <% current_user.group.each do |group| %>
+      <%= link_to group_messages_path(group.id) do %>
+        <div class="group-name">
+          ★<%= group.name %>
+        </div>
+        <div class="group-message">
+          <%= group.show_last_message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+  

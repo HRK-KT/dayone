@@ -1,0 +1,48 @@
+<div class="user-head">
+  トークルーム作成
+</div>
+
+<% if @user.nil? %>
+  <div class="group-create">
+    <%= form_with(model: @group, local:true) do |form| %>
+      <div class="group-create-name">
+        <%= form.label :name, "トークルーム名：", class: "group-create-name__label"%>
+        <%= form.text_field :name, placeholder: "トークルーム名を入力してね", class:"group-create-name__value"%>
+      </div>
+      <div class="check-field">
+        <%= form.label :user_ids, "参加メンバー：", class: "check-field__label"%>
+        <div class="check-field__value">
+          <%= form.collection_check_boxes :user_ids, @users, :id, :name %>
+        </div>
+      </div>
+      <div class="submit-btn">
+        <%= form.submit "作成する"%>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+    <%= form_with(model: @group, local:true) do |form| %>
+      <div class="theme-body">
+      <div class="user-image">
+        <%= image_tag @user.image.url ,:size => '300x200' %>
+      </div>
+        <div class="group-create-name">
+          <%= @user.name %>とのトークを開始しますか？
+        </div>
+        <%= form.hidden_field :name, value: @user.name , class:"new-theme-body__form"%>
+      </div>
+        <%# <%= form.text_field :user_ids, value: @user.id , class:"new-theme-body__form" %> 
+      <div class="check-field"> 
+        <div class="check-field__value">
+          <%= form.collection_check_boxes :user_ids, User.where("(id = ?) OR (id = ?)", @user.id, current_user.id), :id, :name %>
+        </div>
+      </div>
+        <div class="submit-btn">
+          <%= form.submit "開始する"%>
+        </div>
+  <% end %>
+<% end %>
+
+
+
+

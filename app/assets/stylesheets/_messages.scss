@@ -1,0 +1,206 @@
+.form-image {
+  display: none;
+}
+
+.chat-main {
+  width: calc(100% - 250px);
+  &__group-info {
+    height: 70px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__message-list {
+    height: calc(100vh - 260px);
+    background-color: #FFE600;
+    padding-left: 40px;
+    padding-top: 35px;
+    overflow: scroll;
+  }
+  &__message-form {
+    height: 90px;
+    background-color: #d2d2d2;
+    display: flex;
+    align-items: center;
+  }  
+}
+
+.member-list {
+  display: flex;
+  margin-left: 5px;
+}
+
+.member {
+  margin-left: 5px;
+}
+
+.group-top {
+  align-items: center;
+  margin-left: 20px;
+  &__name {
+    font-size: 20px;
+    color: #333333;
+    margin: 10px 0px ;
+  }
+  &__member{
+    font-size: 12px;
+    color: #999999;
+    display: flex;
+  }   
+}
+
+.group-edit-btn {
+  font-size: 16px;
+  height: 40px;
+  width: 120px;
+  border: 1px solid #38aef0;
+  margin: auto 20px;
+  padding: 0px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.edit-btn-text {
+  line-height: 50px;
+  text-align: center;
+  height: 50px;
+  width:130px;
+  color: #FFE600;
+  background-color: #EA5419;
+  margin-right: 50px;
+  margin-top: 10px;
+}
+
+
+.form-field { 
+  width: 100%;
+  margin-left: 20px;
+}
+
+.whole-form-area {
+  display: flex;
+  align-items: center;
+}
+
+.form-area {
+  display: flex;
+  width: 85%;
+  height: 50px;
+  background-color: whitesmoke;
+  border: 1px solid grey;
+}
+
+.message-field {
+  width:95%;
+  height:50px;
+  line-height: 40px;
+}
+
+
+.form-message {
+  width:100%;
+}
+
+.file-field {
+  width:5%;
+  height:50px;
+  line-height: 50px;
+  padding-top: 5px;
+}
+
+.message-send-btn {
+  line-height: 50px;
+  text-align: center;
+  height: 50px;
+  width:130px;
+  color: #FFE600;
+  background-color: #EA5419;
+  margin-left: 5px;
+}
+
+
+.message-area {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.message-info {
+  text-align: right;
+  margin-right:50px;
+  color: grey;
+
+  &__date {
+    font-size: 12px;
+  }
+}
+
+.message-info-left {
+  text-align: left;
+  margin-right:50px;
+  color: grey;
+
+  &__date {
+    font-size: 12px;
+  }
+}
+
+/* 左のトークボックス */
+.message-content-left:before { /* 左の丸アイコン */
+	content:'';
+	display:inline-block;
+	width:50px;
+	height:50px;
+	vertical-align:top;
+	border-radius:50%;
+	background-size:cover;
+	// background-image:url(icon_left.jpg); /* ←アイコンはここを変更 */
+}
+.message-content-left p:before {  /* 左ふきだしの左三角を描画 */
+	content: '';
+	position:absolute;
+	top:8px;
+	left:-20px;
+	border: 12px solid transparent;
+	border-right:12px solid white;
+}
+.message-content-left p { /* 左ふきだしの本体 */
+	display:inline-block;
+	position:relative;
+	background-color:white;
+	border-radius:10px;
+	padding:10px;
+	margin:0 0 0 10px;
+}
+/* 右のトークボックス */
+.message-content-right:after { /* 右の丸アイコン */
+	content:'';
+	display:inline-block;
+	width:50px;
+	height:50px;
+	vertical-align:top;
+	border-radius:50%;
+	background-size:cover;
+	background-position:-10px;
+	// background-image:url(icon_right.jpg);  /* ←アイコンはここを変更 */
+}
+.message-content-right {
+	float:right; /* 右のふきだしは全体的に右寄せ */
+	margin-top:1em;
+}
+.message-content-right p:after { /* 右ふきだしの右三角を描画 */
+	content: '';
+	position:absolute;
+	top:8px;
+	right:-20px;
+	border: 12px solid transparent;
+	border-left:12px solid #85e249;
+}
+.message-content-right p { /* 右ふきだしの本体 */
+	display:inline-block;
+	position:relative;
+	background-color:#85e249;
+	border-radius:10px;
+	padding:10px;
+	margin:0 10px 0 0;
+}

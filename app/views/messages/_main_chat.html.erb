@@ -1,0 +1,50 @@
+<div class="chat-main">
+  <div class="chat-main__group-info">
+    <div class="group-top">
+      <div class="group-top__name">  
+        <%= @group.name %>
+      </div>
+      <div class="group-top__member">
+        トークルーム参加者：
+        <ul class="member-list">
+          <% @group.users.each do |user| %>
+            <li class="member">
+              <%= user.name %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="edit-btn-text">
+      <%= link_to 'ルーム編集', edit_group_path(@group.id) %>
+    </div>
+  </div>
+
+<div class="chat-main__message-list">
+  <%= render partial: 'message', collection: @messages %>
+</div>
+
+  <div class="chat-main__message-form">
+    <div class="form-field">
+      <%= form_with(model:[@group, @message], local:true) do |form| %> 
+        <div class="whole-form-area">
+          <div class="form-area">  
+            <div class="message-field">
+              <%= form.text_field :message, placeholder: "メッセージを入力してください" ,class:"form-message"%>
+            </div>
+            <div class="file-field">
+              <%= form.label :image, class:"form-btn" do %>
+                <i class="far fa-image fa-2x"></i>
+                <%= form.file_field :image, class:"form-image" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="message-send-btn">
+            <%= form.submit "送信"%>
+          </div>
+        </div>
+    </div>
+    <% end %>
+  </div>
+
+</div>

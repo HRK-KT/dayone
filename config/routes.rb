@@ -18,6 +18,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :groups, only: [:index, :new, :create, :edit, :update] do
+    resources :messages, only: [:index, :create]
+    namespace :api do
+      resources :messages, only: :index, defaults: { format: 'json' }
+    end
+  end
+
   post '/answers/:answers_id/:comment_id/likes' => "likes#create"
   delete '/answers/:answers_id/:comment_id/likes' => "likes#destroy"
 

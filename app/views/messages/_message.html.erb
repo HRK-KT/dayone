@@ -1,0 +1,52 @@
+<div class="message-area">
+  <% if message.user_id == current_user.id %>
+  <div class="message-info">
+    <div class="message-info__user">
+      <%= message.user.name %>
+    </div>
+    <div class="message-info__date">
+      <%= message.created_at.strftime("%Y年%m月%d日 %H時%M分")%>
+    </div>
+  </div>
+   <% else %>
+  <div class="message-info-left">
+    <div class="message-info-left__user">
+      <%= message.user.name %>
+    </div>
+    <div class="message-info-left__date">
+      <%= message.created_at.strftime("%Y年%m月%d日 %H時%M分")%>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="message-body">
+    <% if message.message.present? %>
+      <% if message.user_id == current_user.id %>
+        <div class='message-content-right'>
+          <p>
+            <%= message.message %>
+          </p>
+        </div>
+        <div class="message-image-right">
+          <% if message.image.present? %>
+            <%= image_tag message.image.url %>     
+          <% end %>
+        </div>
+ 
+      <% else %>
+        <div class="message-content-left">
+          <p>
+            <%= message.message %>
+          </p>
+        </div>
+           <div class="message-image-left">
+          <% if message.image.present? %>
+            <%= image_tag message.image.url %>     
+          <% end %>
+        </div>
+      <% end %>
+     
+    <% end %>
+  
+  </div>
+</div>

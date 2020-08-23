@@ -16,7 +16,7 @@
 
    <header class="header">
       <div class="header__bar row">
-        <h1 class="grid-6"><a class="title", href="/">Title</a></h1>
+        <h1 class="grid-6"><a class="title", href="/">まだ未完成だからさわるな</a></h1>
         <div class="side-box">
           <% if user_signed_in? %>
             <div class="user_nav grid-6">
@@ -41,6 +41,7 @@
                   <li><%= link_to '回答一覧' , answers_path %></li>
                   <li><%= link_to 'マイページ', user_path(current_user) %></li>
                   <li><%= link_to 'フレンドリスト', user_friends_path %></li>
+                  <li><%= link_to 'トークルーム', groups_path %></li>
                 </ul>
               </nav>
             </div>  

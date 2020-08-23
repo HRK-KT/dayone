@@ -1,0 +1,82 @@
+.group-info-area {
+  width: 250px;
+  background-color: #EEEEEE;
+  padding-left: 20px;
+}
+
+.group-name {
+  line-height: 30px;
+  height: 30px;
+  font-size: 20px;
+}
+
+.group-message {
+  height: 50px;
+  font-size: 12px;
+}
+
+.group-create-name {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  line-height: 40px;
+  width: 100%;
+
+  &__label {
+    
+  }
+
+  &__value {
+    width: 70%;
+    background-color: #EEEEEE;
+    border: 1px solid grey;
+  }
+
+}
+
+.check-field {
+  height:40px;
+  display: flex;
+  justify-content: center;
+
+  &__label {
+    line-height: 40px;
+  }
+
+  &__value {
+    line-height: 40px;
+  }
+}
+
+.user-image {
+  margin: 0px auto;
+}
+
+.side-bar {
+  width: 250px;
+  height: 100%;
+  background-color: #EEEEEE;
+
+  &__user-name {
+    background-color: grey;
+    height: 70px;
+    color: #FFE600;
+  }
+}
+
+.top-items {
+  justify-content: space-between;
+  padding: 10px;  
+  padding-left: 20px;
+
+  &__name {
+    height:30px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__icons {
+    text-align: right;
+  }
+  
+}

@@ -18,6 +18,11 @@ html {
   text-align: center;
 }
 
+.wrapper {
+  display: flex;
+  height: calc(100% - 100px);
+}
+
 @import "reset";
 @import "header";
 @import "tops";
@@ -27,3 +32,6 @@ html {
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "user_friends";
+@import "groups";
+@import "users";
+@import "messages";
