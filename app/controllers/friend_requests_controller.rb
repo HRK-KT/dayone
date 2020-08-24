@@ -8,6 +8,7 @@ class FriendRequestsController < ApplicationController
 
   def create
     FriendRequest.create(user_params)
+    redirect_to user_path(current_user.id), notice: 'フレンド申請しました'
   end
 
   def destroy
