@@ -1,11 +1,49 @@
-new friends
-
-申請する？
+<div class="friend-head">
+  フレンド申請
+</div>
 
 <%= form_with(url: "/users/#{@user.id}/friend_requests", local:true) do |form| %>
-  <%=form.text_field :to_user_id, value: @user.id, readonly: true %>
-  <div class="user-image">
-				<%= image_tag @user.image.url %>
-	</div>
-  <%=form.submit "申請する"%>
+  
+    <div class="request-friend-contents">
+      <div class="friend-contents-id">
+        <div class="friend-contents-id__label">
+          ユーザーID:
+        </div>
+        <div class="friend-contents-id__value">
+          <%=form.text_field :to_user_id, value: @user.id, readonly: true, class: "id-text" %>
+        </div>
+      </div>
+      <div class="friend-contents-image">
+        <%= image_tag @user.image.url ,:size => '300x200' %>
+      </div>
+      <div class="friend-contents-name">
+        <div class="friend-contents-name__label">
+          ユーザー名:
+
+        </div>
+        <div class="friend-contents-name__value">
+          <%=link_to "#{@user.name}", user_path(@user.id) %>
+        </div>
+      </div>
+      <div class="friend-contents-comment">
+        <div class="friend-contents-comment__label">
+          コメント:
+        </div>
+        <div class="friend-contents-comment__value">
+          <% if @user.comment.nil? %>
+            コメントはありません
+          <% else %>
+           <%= @user.comment %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  <div class="request-text">
+    フレンド申請しますか？
+  </div>
+
+  <div class=submit-btn>
+    <%=form.submit "申請する"%>
+  </div>
 <% end %>

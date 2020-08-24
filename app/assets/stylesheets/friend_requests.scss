@@ -1,3 +1,43 @@
-// Place all the styles related to the friend_requests controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.friend-head {
+  background-color: #0DB8D9;
+  color: #FFE600;
+  height: 40px;
+  line-height: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  padding-left: 20px;
+  margin: 10px 0px;
+}
+
+
+.request-text {
+  text-align: center;
+}
+
+.user-name { 
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px;
+  font-size: 16px;
+  font-weight: bold;
+
+
+  &__ label {
+
+  }
+
+}
+
+.id-text {
+  width: 50px;
+}
+
+.request-friend-contents {
+  height: 510px;
+  width: 350px;
+  border: 3px solid #F08A37;
+  // background-image: url("../../assets/images/background.png");
+  background-color: #fffff0;
+  box-shadow: lightslategrey 4px 4px 2px;
+  margin: 10px auto;
+}
