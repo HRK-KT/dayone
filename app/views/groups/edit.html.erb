@@ -1,8 +1,19 @@
+<div class="user-head">
+  トークルーム編集
+</div>
+
   <%= form_with(model: @group, local:true) do |form| %>
-    <div class="group-name-edit">
-      <%= form.label :name, "トークルーム名を変更", class:"group-name-edit__label"%>
-      <%= form.text_field :name, placeholder: "トークルーム名を変更してね", class:"group-name-edit__form"%>
+    <div class="group-create-name">
+      <%= form.label :name, "トークルーム名を変更", class:"group-create-name__label"%>
+      <%= form.text_field :name, placeholder: "トークルーム名を変更してね", class:"group-create-name__value"%>
     </div>
-    <%= form.collection_check_boxes :user_ids, @users, :id, :name %>
-    <%= form.submit "編集する"%>
+    <div class="check-field">
+      <%= form.label :user_ids, "参加メンバー：", class: "check-field__label"%>
+      <div class="check-field__value">
+        <%= form.collection_check_boxes :user_ids, @users, :id, :name %>
+      </div>
+    </div>
+    <div class="submit-btn">
+      <%= form.submit "編集する"%>
+    </div>
   <% end %>
