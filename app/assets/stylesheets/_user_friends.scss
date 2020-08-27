@@ -20,6 +20,8 @@
 
 .friend-area {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .friend-contents {
